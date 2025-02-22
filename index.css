@@ -1,0 +1,899 @@
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(100px); /* Start off-screen to the left */
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px); /* Slight lift effect */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* Dark Mode - Full Background */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: url('background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh; /* Ensures full coverage */
+  color: #e3e7ee;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Light Mode - Full Background */
+body.light-mode {
+  background: url('background1.jpg') no-repeat center center fixed !important;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+  color: #333 !important;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Distribute items */
+  width: 100vw; /* Ensure full width */
+  max-width: 100%; /* Prevent overflow */
+  height: 70px;
+  background-color: black;
+  color: white;
+  padding: 10px 20px; /* Adjust padding */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  transition: background 0.3s;
+  font-family: "Grechen Fuemen";
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.navbar h1 { 
+  overflow: hidden;
+  text-overflow: ellipsis; /* Truncate text if too long */
+  max-width: 90%; /* Ensures it doesn't overflow */
+  white-space: nowrap;
+}
+
+
+
+body.light-mode .navbar {
+  background-color: #f0f0f0 !important;
+  color: black !important;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 80px;
+  left: 0;
+  width: 250px;
+  background-color: #1a1a1a;
+  height: calc(100vh - 80px);
+  padding: 10px;
+  border-right: 1px solid #333;
+  overflow-y: auto;
+  transition: background 0.3s;
+}
+
+body.light-mode .sidebar {
+  background-color: #f9f9f9 !important;
+  border-right: 1px solid #ccc;
+}
+
+/* Sidebar Buttons */
+.sidebar-btn button{
+  background-color: #2c2c2c;
+  color: white;
+  font-size: 1rem;
+  margin: 5px 0;
+  padding: 12px 15px;
+  width: 100%;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+  margin-right: 8px; /* Adds space between the icon and text */
+  font-size: 1.2rem; /* Adjusts icon size */
+  vertical-align: middle;
+  font-family: "Lexend Giga";
+}
+
+body.light-mode .sidebar-btn button {
+  background-color: #ddd !important;
+  color: black !important;
+}
+
+.sidebar-btn button:hover {
+  background-color: #444;
+}
+
+body.light-mode .sidebar-btn button:hover {
+  background-color: #bbb !important;
+}
+
+/* Content Area */
+.content {
+  margin-left: 270px;
+  padding: 20px;
+  margin-top: 80px;
+  transition: background 0.3s, color 0.3s;
+  font-family: "Arsenal SC";
+}
+
+body.light-mode .content {
+  background-color: #ffffff !important;
+  color: black !important;
+}
+
+/* Form Inputs */
+.main-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 400px;
+  animation: fadeIn 1.5s ease-in-out; /* 1.5s smooth fade-in */
+  opacity: 1; /* Ensure visibility */
+}
+
+.main-section input, .main-section select {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #444;
+  background-color: #222;
+  color: white;
+  transition: background 0.3s, color 0.3s;
+}
+
+body.light-mode .main-section input,
+body.light-mode .main-section select {
+  background-color: #f9f9f9 !important;
+  border: 1px solid #aaa;
+  color: black !important;
+}
+
+/* Add Button */
+#add-btn {
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+#add-btn:hover {
+  background-color: #45a049 !important; /* Dark Mode Hover */
+}
+
+body.light-mode #add-btn {
+  background-color: #28a745 !important;
+  color: white;
+}
+
+body.light-mode #add-btn:hover {
+  background-color: #218838 !important; /* Light Mode Hover */
+}
+
+/* Delete Button */
+.delete-btn {
+  padding: 5px 10px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.delete-btn:hover {
+  background-color: #d32f2f !important; /* Dark Mode Hover */
+}
+
+body.light-mode .delete-btn {
+  background-color: #dc3545 !important;
+  color: white;
+}
+
+body.light-mode .delete-btn:hover {
+  background-color: #c82333 !important; /* Light Mode Hover */
+}
+
+/* Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+}
+
+body.light-mode th {
+  background-color: #28a745 !important;
+}
+
+/* Table Alternating Row Colors */
+tbody tr:nth-child(odd) {
+  background-color: #1a1a1a;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #222;
+}
+
+body.light-mode tbody tr:nth-child(odd) {
+  background-color: #f5f5f5;
+}
+
+body.light-mode tbody tr:nth-child(even) {
+  background-color: #eaeaea;
+}
+
+/* Status Message */
+.status-message {
+  color: #4CAF50;
+  font-weight: bold;
+  font-size: 1rem;
+  margin-top: 10px;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+/* Pie Chart Size */
+#expenseChart {
+  max-width: 300px;
+  max-height: 300px;
+  margin: auto;
+}
+
+/* Hide Sections Initially */
+.hidden {
+  display: none;
+}
+
+/* Theme Toggle Button */
+#theme-btn {
+  background-color: #555;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#theme-btn:hover {
+  background-color: #777;
+}
+
+body.light-mode #theme-btn {
+  background-color: #ddd;
+  color: black;
+}
+
+body.light-mode #theme-btn:hover {
+  background-color: #bbb;
+}
+/* Default Dark Mode - Icons White */
+.sidebar-btn button i {
+  color: white;
+  transition: color 0.3s ease-in-out;
+  margin-right: 5px;
+}
+
+/* Light Mode - Icons Black */
+body.light-mode .sidebar-btn button i {
+  color: black !important;
+}
+.content {
+  margin-left: 270px;
+  padding: 20px;
+  margin-top: 80px;
+  background: transparent !important;
+  transition: background 0.3s, color 0.3s;
+}
+
+body.light-mode .content {
+  background: transparent !important;
+  color: black !important;
+}
+.navbar h1 {
+  animation: slideInLeft 1s ease-in-out; /* Smooth slide-in effect */
+  opacity: 1;
+}
+section {
+  opacity: 0; /* Initially hidden */
+  display: none; /* Hide sections initially */
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+/* Ensure active section is visible */
+.active-section {
+  display: block;
+  opacity: 1;
+}
+#main-section {
+  display: block;
+  opacity: 1;
+}
+#calculate-balance {
+  border-radius: 8px;
+  background-color: #686D76; /* Neutral color */
+  color: white; /* Text color for contrast */
+  border: none;
+  padding: 10px 16px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+/* Hover effect */
+#calculate-balance:hover {
+  background-color: #545960; /* Slightly darker for hover */
+  transform: scale(1.05); /* Smooth hover effect */
+}
+
+/* Active (Click) effect */
+#calculate-balance:active {
+  transform: scale(0.98);
+}
+
+/* Light Mode Styles */
+.light-mode #calculate-balance {
+  background-color: #d1d5db; /* Light gray */
+  color: black;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Light Mode Hover Effect */
+.light-mode #calculate-balance:hover {
+  background-color: #bfc4ca; /* Slightly darker on hover */
+}
+/* Main Section Styling */
+#main-section {
+  background: rgba(255, 255, 255, 0.1); /* Light glass effect */
+  backdrop-filter: blur(10px); /* Glassmorphism */
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 600px;
+  margin: auto;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  transition: 0.3s ease-in-out;
+}
+
+/* Headings */
+#main-section h2 {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 15px;
+  color: #333; /* Default dark text */
+}
+
+/* Inputs & Select Styling */
+/* Ensure input fields fit inside the form */
+#main-section select,
+#main-section input {
+  width: 100%; /* Make them fully responsive */
+  max-width: 500px; /* Prevent excessive width */
+  padding: 10px;
+  margin-bottom: 12px;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border 0.3s;
+  box-sizing: border-box; /* Prevents overflow */
+}
+
+
+/* Hover and Focus Effects */
+#main-section select:hover,
+#main-section input:hover,
+#main-section select:focus,
+#main-section input:focus {
+  border-color: #4CAF50; /* Green border highlight */
+  outline: none;
+}
+
+/* Add Button Styling */
+#add-btn {
+  width: 100%;
+  padding: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Hover effect for Add Button */
+#add-btn:hover {
+  background-color: #45a049;
+}
+
+/* Status Message */
+#status-text {
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* 🔥 Light Mode Styling */
+.light-mode #main-section {
+  background: rgba(255, 255, 255, 0.8);
+  color: #000;
+}
+
+.light-mode #main-section h2 {
+  color: #222;
+}
+
+/* 🌙 Dark Mode Styling */
+.dark-mode #main-section {
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+}
+
+.dark-mode #main-section h2 {
+  color: #fff;
+}
+
+.dark-mode #add-btn {
+  background-color: #686D76;
+}
+
+.dark-mode #add-btn:hover {
+  background-color: #555A60;
+}
+/* Ensure form fields align properly */
+#main-section .form-group {
+  display: flex;
+  flex-direction: column; /* Stack label and input */
+  width: 100%;
+}
+
+/* Make all input fields uniform */
+#main-section select,
+#main-section input {
+  width: 100%;
+  max-width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border 0.3s ease-in-out;
+  box-sizing: border-box;
+}
+
+/* Adjust the Date input */
+#date-input {
+  width: 100%; /* Ensure same width as other fields */
+  margin-top: 0px; /* Remove extra gap */
+}
+
+/* Align labels properly */
+#main-section label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Responsive Fix */
+@media (max-width: 600px) {
+  #main-section .form-group {
+    width: 100%;
+  }
+}
+/* Default (Light Mode) - Black Text */
+#main-section h2 {
+  color: black;
+  font-weight: bold;
+  text-align: center;
+  font-size: 24px;
+}
+
+/* Dark Mode - White Text */
+.dark-mode #main-section h2 {
+  color: white;
+}
+/* Style the Current Balance Section */
+#balance-section {
+  background: rgba(255, 255, 255, 0.1); /* Light glass effect */
+  backdrop-filter: blur(10px); /* Glassmorphism */
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 500px;
+  margin: auto;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  transition: 0.3s ease-in-out;
+}
+
+/* Headings */
+#balance-section h2 {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 15px;
+  color: white; /* Default for dark mode */
+}
+
+/* Labels */
+#balance-section label {
+  font-weight: bold;
+  display: block;
+  margin-top: 10px;
+  color: white;
+}
+
+/* Input Field */
+#income-input {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border 0.3s;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+/* Balance Display */
+#remaining-balance {
+  font-size: 18px;
+  font-weight: bold;
+  color: #4CAF50; /* Green balance text */
+}
+
+/* Calculate Button */
+#calculate-balance {
+  width: 100%;
+  padding: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #686D76;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Button Hover */
+#calculate-balance:hover {
+  background-color: #545960;
+  transform: scale(1.05);
+}
+
+/* Light Mode Styling */
+.light-mode #balance-section {
+  background: rgba(255, 255, 255, 0.8);
+  color: #000;
+}
+
+.light-mode #balance-section h2,
+.light-mode #balance-section label {
+  color: black;
+}
+
+.light-mode #income-input {
+  background: rgba(0, 0, 0, 0.1);
+  color: black;
+}
+
+.light-mode #remaining-balance {
+  color: #2d7d46;
+}
+
+.light-mode #calculate-balance {
+  background-color: #d1d5db;
+  color: black;
+}
+
+.light-mode #calculate-balance:hover {
+  background-color: #bfc4ca;
+}
+/* Style the Visual Representation Section */
+#visual-section {
+  background: rgba(255, 255, 255, 0.1); /* Glassmorphism effect */
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 600px;
+  margin: auto;
+  text-align: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  transition: 0.3s ease-in-out;
+}
+
+/* Heading Style */
+#visual-section h2 {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  color: black; /* Light mode text */
+}
+
+/* Center the chart */
+#expenseChart {
+  display: block;
+  margin: auto;
+  max-width: 100%;
+  width: 80%;
+}
+
+/* Light Mode Styles */
+.light-mode #visual-section {
+  background: rgba(255, 255, 255, 0.8);
+  color: #000;
+}
+
+.light-mode #visual-section h2 {
+  color: black;
+}
+
+/* Dark Mode Styles */
+.dark-mode #visual-section {
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+}
+
+.dark-mode #visual-section h2 {
+  color: white;
+}
+/* Style the Expenses Table */
+#expenses-section table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+/* Table Headers */
+#expenses-section th {
+  background-color: #4CAF50; /* Green header */
+  color: white;
+  padding: 12px;
+  text-align: left;
+  font-weight: bold;
+}
+
+/* Table Rows */
+#expenses-section tr {
+  transition: background 0.3s ease-in-out;
+}
+
+/* Table Cells */
+#expenses-section td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Hover Effect */
+#expenses-section tr:hover {
+  background-color: rgba(76, 175, 80, 0.2); /* Light green hover */
+}
+
+/* Delete Button */
+.delete-btn {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+/* Delete Button Hover */
+.delete-btn:hover {
+  background-color: #c82333;
+}
+
+/* Light Mode Styles */
+.light-mode #expenses-section th {
+  background-color: #2d7d46;
+}
+
+.light-mode #expenses-section tr:hover {
+  background-color: rgba(0, 0, 0, 0.1); /* Light gray hover */
+}
+
+/* Dark Mode Styles */
+.dark-mode #expenses-section th {
+  background-color: #4CAF50;
+}
+
+.dark-mode #expenses-section tr:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Light effect in dark mode */
+}
+.sidebar-btn button {
+  display: flex;
+  align-items: center;
+  background: rgba(44, 44, 44, 0.9);
+  color: white;
+  font-size: 1rem;
+  padding: 12px 15px;
+  width: 100%;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out, transform 0.2s;
+  font-family: "Lexend Giga", sans-serif;
+  margin-top: 10px;
+}
+
+.sidebar-btn button i {
+  margin-right: 10px;
+}
+
+/* Sidebar Hover Effect */
+.sidebar-btn button:hover {
+  background: rgba(76, 175, 80, 0.8);
+  transform: translateX(5px);
+}
+
+/* Light Mode Sidebar Buttons */
+body.light-mode .sidebar-btn button {
+  background: rgba(220, 220, 220, 0.9);
+  color: black;
+}
+
+body.light-mode .sidebar-btn button:hover {
+  background: rgba(72, 138, 199, 0.8);
+}
+/* 📌 Responsive Navbar */
+@media (max-width: 1024px) {
+  .navbar {
+    height: 60px;
+    padding: 8px 15px;
+  }
+
+  .navbar h1 {
+    font-size: 20px;
+  }
+
+  .content {
+    margin-left: 250px;
+    margin-top: 60px;
+  }
+}
+
+/* 📌 Adjust Sidebar for Smaller Screens */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+    top: 60px;
+    height: calc(100vh - 60px);
+  }
+
+  .sidebar-btn button {
+    font-size: 1rem;
+    padding: 10px;
+  }
+
+  .content {
+    margin-left: 220px;
+  }
+}
+
+/* 📌 Mobile Optimization (Phones) */
+@media (max-width: 600px) {
+  .navbar {
+    height: 55px;
+    padding: 8px;
+  }
+
+  .navbar h1 {
+    font-size: 18px;
+  }
+
+  /* 📌 Sidebar becomes a collapsible menu */
+  .sidebar {
+    width: 100px;
+    height: calc(100vh - 55px);
+  }
+
+  .sidebar-btn button {
+    font-size: 0.9rem;
+    padding: 8px;
+    text-align: center;
+  }
+
+  .sidebar-btn button i {
+    margin-right: 0;
+  }
+
+  .content {
+    margin-left: 110px;
+    padding: 15px;
+  }
+
+  /* 📌 Make form inputs & buttons larger for touch */
+  input, select, button {
+    font-size: 16px;
+    padding: 12px;
+  }
+}
+
+/* 📌 Fully Collapsible Sidebar for Very Small Devices */
+@media (max-width: 480px) {
+  .sidebar {
+    width: 80px;
+  }
+
+  .sidebar-btn button {
+    padding: 6px;
+    font-size: 0.8rem;
+  }
+
+  .content {
+    margin-left: 90px;
+    padding: 10px;
+  }
+}
+
+/* 📌 Ensure Tables Fit on Mobile */
+@media (max-width: 768px) {
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  th, td {
+    padding: 6px;
+    font-size: 14px;
+  }
+}
+
+/* 📌 Adjust Form Fields for Mobile */
+@media (max-width: 600px) {
+  .main-section {
+    max-width: 90%;
+    margin: auto;
+  }
+
+  .main-section input, 
+  .main-section select {
+    width: 100%;
+  }
+
+  #add-btn {
+    width: 100%;
+  }
+}
+
+
