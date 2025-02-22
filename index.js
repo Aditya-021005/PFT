@@ -26,6 +26,7 @@ const totalAmountCell = document.getElementById("total-amount");
 const incomeInput = document.getElementById("income-input");
 const remainingBalance = document.getElementById("remaining-balance");
 const calculateBalanceBtn = document.getElementById("calculate-balance");
+const dateFilter = document.getElementById("date-filter");
 
 // Function to show only the selected section with fade-in effect
 function showSection(sectionToShow) {
@@ -164,3 +165,4 @@ window.onload = () => {
         document.body.classList.add("light-mode");
     }
 };
+dateFilter.addEventListener("change", updateChart);
