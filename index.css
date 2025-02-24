@@ -1988,6 +1988,246 @@ h2 {
 .opening-text {
   color: white;
 }
+/* Ensure full-screen background */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: url('background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden; /* Prevents unwanted scrolling */
+}
+
+/* ✅ Main Container - Fully Responsive */
+#login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40%; /* Adjusts dynamically */
+  max-width: 500px;
+  height: auto;
+  max-height: 90vh; /* Prevents cutoff */
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 15px;
+  padding: 40px;
+  backdrop-filter: blur(15px);
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  overflow-y: auto; /* ✅ Ensures scrolling instead of cut-off */
+}
+
+/* Heading */
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 10px;
+}
+
+/* Subtext */
+.login-subtext {
+  font-size: 14px;
+  color: #e3e7ee;
+  margin-bottom: 20px;
+}
+
+/* ✅ Improved Input Box Sizing */
+.input-box {
+  position: relative;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  background: #222;
+  color: white;
+  font-size: 16px;
+  outline: none;
+  transition: 0.3s;
+}
+
+/* Password Visibility Icon */
+.input-box i {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  cursor: pointer;
+}
+
+/* ✅ Improved CAPTCHA Box */
+.captcha-container {
+  text-align: center;
+  margin-bottom: 15px;
+  background: #444;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  width: 100%;
+}
+
+/* ✅ Improved CAPTCHA Input Field */
+.captcha-container input {
+  width: 100%;
+  max-width: 150px;
+  text-align: center;
+  font-size: 16px;
+  background: #222;
+  border: 1px solid #555;
+  color: white;
+  border-radius: 6px;
+}
+
+/* Remember Me & Forgot Password */
+.remember-me {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.remember-me input {
+  margin-right: 5px;
+}
+
+.forgot-password {
+  color: #00FF88;
+  text-decoration: none;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+/* ✅ Centered Login Button */
+.login-btn {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #00FF88;
+  color: black;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  text-align: center;
+  display: block;
+}
+
+.login-btn:hover {
+  background-color: #00CC66;
+  transform: scale(1.05);
+}
+
+/* OR Text */
+.or-text {
+  font-size: 14px;
+  color: #ddd;
+  text-align: center;
+  margin: 15px 0;
+}
+
+/* ✅ Fixed Social Logins */
+.social-login {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+/* Icons inside Social Buttons */
+.social-login i {
+  margin-right: 10px;
+}
+
+/* Social Button Colors */
+.google {
+  background-color: white;
+  color: black;
+  border: 1px solid #ccc;
+}
+
+.google:hover {
+  background-color: #f0f0f0;
+}
+
+.apple {
+  background-color: black;
+  color: white;
+}
+
+.apple:hover {
+  background-color: #333;
+}
+
+.facebook {
+  background-color: #1877f2;
+  color: white;
+}
+
+.facebook:hover {
+  background-color: #1359b2;
+}
+
+/* ✅ Fixing Signup Text */
+.signup-text {
+  font-size: 14px;
+  text-align: center;
+}
+
+.signup-text a {
+  color: #00FF88;
+  text-decoration: none;
+}
+
+.signup-text a:hover {
+  text-decoration: underline;
+}
+
+/* ✅ Fully Responsive Adjustments */
+@media (max-width: 1024px) {
+  #login-container {
+    width: 60%;
+    max-height: 85vh;
+  }
+}
+
+@media (max-width: 768px) {
+  #login-container {
+    width: 75%;
+    max-height: 80vh;
+    padding: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  #login-container {
+    width: 90%;
+    max-height: 80vh;
+    padding: 25px;
+  }
+}
+
 
 
 
