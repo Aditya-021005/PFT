@@ -2814,7 +2814,7 @@ body.light-mode .content { background-color: #ffffff !important; color: black !i
   text-align: center;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
   overflow-y: auto;
-  background: none;
+  background: black;
   backdrop-filter: none;
 }
 
