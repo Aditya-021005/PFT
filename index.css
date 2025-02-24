@@ -1048,8 +1048,6 @@ h1 span {
 /* Left Side - Image */
 .login-image-container {
   flex: 1;
-  background: url('background.jpg') no-repeat center center;
-  background-size: cover;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -1064,7 +1062,6 @@ h1 span {
   font-size: 14px;
   max-width: 80%;
   margin-bottom: 30px;
-  background: rgba(0, 0, 0, 0.6);
   padding: 10px;
   border-radius: 8px;
 }
@@ -1257,7 +1254,7 @@ h1 span {
     flex-direction: column;
   }
 
-  .login-image-container {
+  .-container {
     display: none;
   }
 
@@ -1289,7 +1286,7 @@ body {
 }
 
 /* Left Side - Image */
-.login-image-container {
+.-container {
   flex: 1;
   display: flex;
   flex-direction: column;
