@@ -1525,6 +1525,239 @@ body {
 .opening-text{
   color:black;
 }
+/* Ensure body background fills the screen */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: url('background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Main Container */
+#login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  max-width: 400px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 30px 40px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+/* Heading Text */
+h2 {
+  font-size: 22px;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 10px;
+}
+
+/* Subtext */
+.login-subtext {
+  font-size: 14px;
+  color: #e3e7ee;
+  margin-bottom: 20px;
+}
+
+/* Improved Input Box Contrast */
+.input-box {
+  position: relative;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  background: #222; /* Darker Background for Contrast */
+  color: white;
+  font-size: 16px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.input-box input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Ensure password visibility toggle icon is visible */
+.input-box i {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  cursor: pointer;
+}
+
+/* ✅ Improved CAPTCHA Box */
+.captcha-container {
+  text-align: center;
+  margin-bottom: 15px;
+  background: #444; /* Dark Gray for Better Visibility */
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+}
+
+/* ✅ Improved CAPTCHA Input Field */
+.captcha-container input {
+  width: 100%;
+  max-width: 150px;
+  text-align: center;
+  font-size: 16px;
+  background: #222; /* Match with input field */
+  border: 1px solid #555;
+  color: white;
+  border-radius: 6px;
+}
+
+/* Remember Me & Forgot Password */
+.remember-me {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.remember-me input {
+  margin-right: 5px;
+}
+
+.forgot-password {
+  color: #00FF88;
+  text-decoration: none;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+/* ✅ Centered Login Button */
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #00FF88;
+  color: black;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  text-align: center;
+  display: block;
+}
+
+.login-btn:hover {
+  background-color: #00CC66;
+  transform: scale(1.05);
+}
+
+/* OR Text */
+.or-text {
+  font-size: 14px;
+  color: #ddd;
+  text-align: center;
+  margin: 15px 0;
+}
+
+/* ✅ Fixed Social Logins */
+.social-login {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+/* Icons inside Social Buttons */
+.social-login i {
+  margin-right: 10px;
+}
+
+/* Social Button Colors */
+.google {
+  background-color: white;
+  color: black;
+  border: 1px solid #ccc;
+}
+
+.google:hover {
+  background-color: #f0f0f0;
+}
+
+.apple {
+  background-color: black;
+  color: white;
+}
+
+.apple:hover {
+  background-color: #333;
+}
+
+.facebook {
+  background-color: #1877f2;
+  color: white;
+}
+
+.facebook:hover {
+  background-color: #1359b2;
+}
+
+/* ✅ Fixing Signup Text */
+.signup-text {
+  font-size: 14px;
+  text-align: center;
+}
+
+.signup-text a {
+  color: #00FF88;
+  text-decoration: none;
+}
+
+.signup-text a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  #login-container {
+    width: 90%;
+    padding: 20px;
+  }
+}
+
+/* Fix CAPTCHA Text Color */
+.captcha-text {
+  color: white;
+}
+
+/* Ensure Opening Text is White */
+.opening-text {
+  color: white;
+}
+
 
 
 
