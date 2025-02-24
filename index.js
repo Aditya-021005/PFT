@@ -33,6 +33,8 @@ const loginContainer = document.getElementById("login-container");
 const mainContent = document.getElementById("main-content");
 const captchaText = document.getElementById("captcha-text");
 const captchaInput = document.getElementById("captcha-input");
+const passwordField = document.getElementById("login-password");
+const passwordToggle = document.querySelector(".input-box i");
 
 document.addEventListener("DOMContentLoaded", function () {
     function generateCaptcha() {
@@ -48,11 +50,11 @@ document.addEventListener("DOMContentLoaded", function () {
         e.preventDefault();
 
         const id = document.getElementById("login-id").value;
-        const password = document.getElementById("login-password").value;
+        const password = passwordField.value;
         const enteredCaptcha = parseInt(captchaInput.value, 10);
 
         if (!id || !password) {
-            alert("ID and password are required.");
+            alert("Email and password are required.");
             return;
         }
 
@@ -66,6 +68,19 @@ document.addEventListener("DOMContentLoaded", function () {
         // Hide login and show main content
         loginContainer.style.display = "none";
         mainContent.style.display = "block";
+    });
+
+    // Toggle Password Visibility
+    passwordToggle.addEventListener("click", function () {
+        if (passwordField.type === "password") {
+            passwordField.type = "text";
+            passwordToggle.classList.remove("fa-eye-slash");
+            passwordToggle.classList.add("fa-eye");
+        } else {
+            passwordField.type = "password";
+            passwordToggle.classList.remove("fa-eye");
+            passwordToggle.classList.add("fa-eye-slash");
+        }
     });
 
     showSection(mainSection);
@@ -198,3 +213,4 @@ themeBtn.addEventListener("click", () => {
 
 // Add event listener for the date filter in the Pie Chart
 dateFilter.addEventListener("change", updateChart);
+
