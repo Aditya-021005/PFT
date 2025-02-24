@@ -2697,6 +2697,263 @@ h2 {
     padding: 20px;
   }
 }
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* Keyframe Animations */
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(100px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Universal Styles */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: url('background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  transition: background 0.3s, color 0.3s;
+}
+
+body.light-mode {
+  background: url('background1.jpg') no-repeat center center fixed !important;
+  background-size: cover;
+  color: black !important;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100vw;
+  height: 70px;
+  background-color: black;
+  color: white;
+  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  transition: background 0.3s;
+  font-family: "Oswald";
+  white-space: nowrap;
+}
+
+body.light-mode .navbar { background-color: #f0f0f0 !important; color: black !important; }
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 80px;
+  left: 0;
+  width: 250px;
+  background-color: #1a1a1a;
+  height: calc(100vh - 80px);
+  padding: 10px;
+  border-right: 1px solid #333;
+  overflow-y: auto;
+}
+
+body.light-mode .sidebar { background-color: #f9f9f9 !important; border-right: 1px solid #ccc; }
+
+.sidebar-btn button {
+  display: flex;
+  align-items: center;
+  background: rgba(44, 44, 44, 0.9);
+  color: white;
+  font-size: 1rem;
+  padding: 12px;
+  width: 100%;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  font-family: "Lexend Giga", sans-serif;
+}
+
+.sidebar-btn button i { margin-right: 10px; }
+
+.sidebar-btn button:hover { background: rgba(76, 175, 80, 0.8); transform: translateX(5px); }
+
+body.light-mode .sidebar-btn button { background: rgba(220, 220, 220, 0.9); color: black; }
+body.light-mode .sidebar-btn button:hover { background: rgba(72, 138, 199, 0.8); }
+
+/* Content */
+.content {
+  margin-left: 270px;
+  padding: 20px;
+  margin-top: 80px;
+  transition: background 0.3s, color 0.3s;
+  font-family: "Arsenal SC";
+}
+
+body.light-mode .content { background-color: #ffffff !important; color: black !important; }
+
+/* Login Container */
+#login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  max-width: 450px;
+  height: auto;
+  max-height: 85vh;
+  border-radius: 15px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+  overflow-y: auto;
+  background: none;
+  backdrop-filter: none;
+}
+
+/* Heading & Subtext */
+h2 { font-size: 22px; font-weight: bold; color: white; margin-bottom: 5px; }
+.login-subtext { font-size: 13px; color: #e3e7ee; margin-bottom: 15px; }
+
+/* Input Fields */
+.input-box {
+  position: relative;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  background: #222;
+  color: white;
+  font-size: 15px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.input-box i {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  cursor: pointer;
+}
+
+/* CAPTCHA */
+.captcha-container {
+  text-align: center;
+  margin-bottom: 10px;
+  background: #444;
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  width: 100%;
+}
+
+.captcha-container input {
+  width: 100%;
+  max-width: 130px;
+  text-align: center;
+  font-size: 14px;
+  background: #222;
+  border: 1px solid #555;
+  color: white;
+  border-radius: 6px;
+  padding: 8px;
+}
+
+/* Remember Me & Forgot Password */
+.remember-me {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.forgot-password {
+  color: #00FF88;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.forgot-password:hover { text-decoration: underline; }
+
+/* Login Button */
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  font-size: 15px;
+  font-weight: bold;
+  background-color: #00FF88;
+  color: black;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+  text-align: center;
+}
+
+.login-btn:hover { background-color: #00CC66; transform: scale(1.05); }
+
+/* Social Logins */
+.social-login {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.social-login i { margin-right: 8px; }
+
+/* Social Button Colors */
+.google { background-color: white; color: black; border: 1px solid #ccc; }
+.google:hover { background-color: #f0f0f0; }
+
+.apple { background-color: black; color: white; }
+.apple:hover { background-color: #333; }
+
+.facebook { background-color: #1877f2; color: white; }
+.facebook:hover { background-color: #1359b2; }
+
+/* Signup Text */
+.signup-text {
+  font-size: 13px;
+  text-align: center;
+}
+
+.signup-text a {
+  color: #00FF88;
+  text-decoration: none;
+}
+
+.signup-text a:hover { text-decoration: underline; }
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) { #login-container { width: 55%; max-height: 80vh; } }
+@media (max-width: 768px) { #login-container { width: 75%; max-height: 75vh; padding: 25px; } }
+@media (max-width: 480px) { #login-container { width: 90%; max-height: 75vh; padding: 20px; } }
+
 
 
 
