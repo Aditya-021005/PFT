@@ -1517,6 +1517,9 @@ body {
     width: 100%;
   }
 }
+.captcha-text{
+  color:black;
+}
 
 
 
