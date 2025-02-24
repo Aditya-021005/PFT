@@ -2227,6 +2227,247 @@ h2 {
     padding: 25px;
   }
 }
+/* Ensure full-screen background */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: url('background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden; /* Prevents unwanted scrolling */
+}
+
+/* ✅ Main Container - Compact & Well-Spaced */
+#login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  max-width: 450px;
+  height: auto;
+  max-height: 85vh; /* Keeps it inside screen */
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 15px;
+  padding: 30px; /* Reduced padding */
+  backdrop-filter: blur(12px);
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  overflow-y: auto;
+}
+
+/* Heading */
+h2 {
+  font-size: 22px; /* Slightly reduced */
+  font-weight: bold;
+  color: white;
+  margin-bottom: 5px; /* Reduced spacing */
+}
+
+/* Subtext */
+.login-subtext {
+  font-size: 13px; /* Smaller text */
+  color: #e3e7ee;
+  margin-bottom: 15px; /* Less space */
+}
+
+/* ✅ Compact Input Boxes */
+.input-box {
+  position: relative;
+  width: 100%;
+  margin-bottom: 10px; /* Less gap */
+}
+
+.input-box input {
+  width: 100%;
+  padding: 12px; /* Reduced height */
+  border: none;
+  border-radius: 6px;
+  background: #222;
+  color: white;
+  font-size: 15px; /* Slightly smaller text */
+  outline: none;
+  transition: 0.3s;
+}
+
+/* Password Visibility Icon */
+.input-box i {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  cursor: pointer;
+}
+
+/* ✅ Compact CAPTCHA Box */
+.captcha-container {
+  text-align: center;
+  margin-bottom: 10px; /* Less gap */
+  background: #444;
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  width: 100%;
+}
+
+/* ✅ Compact CAPTCHA Input */
+.captcha-container input {
+  width: 100%;
+  max-width: 130px;
+  text-align: center;
+  font-size: 14px; /* Reduced font */
+  background: #222;
+  border: 1px solid #555;
+  color: white;
+  border-radius: 6px;
+  padding: 8px;
+}
+
+/* Remember Me & Forgot Password */
+.remember-me {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px; /* Smaller text */
+  width: 100%;
+  margin-bottom: 12px; /* Less spacing */
+}
+
+.remember-me input {
+  margin-right: 5px;
+}
+
+.forgot-password {
+  color: #00FF88;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+/* ✅ Compact Login Button */
+.login-btn {
+  width: 100%;
+  padding: 12px; /* Smaller height */
+  font-size: 15px; /* Reduced font */
+  font-weight: bold;
+  background-color: #00FF88;
+  color: black;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  text-align: center;
+}
+
+.login-btn:hover {
+  background-color: #00CC66;
+  transform: scale(1.05);
+}
+
+/* OR Text */
+.or-text {
+  font-size: 13px; /* Smaller text */
+  color: #ddd;
+  text-align: center;
+  margin: 12px 0; /* Less space */
+}
+
+/* ✅ Compact Social Logins */
+.social-login {
+  width: 100%;
+  padding: 10px; /* Smaller button */
+  font-size: 14px; /* Slightly smaller */
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px; /* Less spacing */
+}
+
+/* Icons inside Social Buttons */
+.social-login i {
+  margin-right: 8px;
+}
+
+/* Social Button Colors */
+.google {
+  background-color: white;
+  color: black;
+  border: 1px solid #ccc;
+}
+
+.google:hover {
+  background-color: #f0f0f0;
+}
+
+.apple {
+  background-color: black;
+  color: white;
+}
+
+.apple:hover {
+  background-color: #333;
+}
+
+.facebook {
+  background-color: #1877f2;
+  color: white;
+}
+
+.facebook:hover {
+  background-color: #1359b2;
+}
+
+/* ✅ Fixing Signup Text */
+.signup-text {
+  font-size: 13px; /* Smaller text */
+  text-align: center;
+}
+
+.signup-text a {
+  color: #00FF88;
+  text-decoration: none;
+}
+
+.signup-text a:hover {
+  text-decoration: underline;
+}
+
+/* ✅ Fully Responsive Adjustments */
+@media (max-width: 1024px) {
+  #login-container {
+    width: 55%;
+    max-height: 80vh;
+  }
+}
+
+@media (max-width: 768px) {
+  #login-container {
+    width: 75%;
+    max-height: 75vh;
+    padding: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  #login-container {
+    width: 90%;
+    max-height: 75vh;
+    padding: 20px;
+  }
+}
+
 
 
 
