@@ -1291,8 +1291,6 @@ body {
 /* Left Side - Image */
 .login-image-container {
   flex: 1;
-  background: url('background.jpg') no-repeat center center;
-  background-size: cover;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
