@@ -26,20 +26,62 @@ const totalAmountCell = document.getElementById("total-amount");
 const incomeInput = document.getElementById("income-input");
 const remainingBalance = document.getElementById("remaining-balance");
 const calculateBalanceBtn = document.getElementById("calculate-balance");
+const dateFilter = document.getElementById("date-filter");
 
+const loginForm = document.getElementById("login-form");
+const loginContainer = document.getElementById("login-container");
+const mainContent = document.getElementById("main-content");
+const captchaText = document.getElementById("captcha-text");
+const captchaInput = document.getElementById("captcha-input");
+
+document.addEventListener("DOMContentLoaded", function () {
+    function generateCaptcha() {
+        const num1 = Math.floor(Math.random() * 10);
+        const num2 = Math.floor(Math.random() * 10);
+        captchaText.textContent = `${num1} + ${num2} = ?`;
+        return num1 + num2;
+    }
+
+    let captchaAnswer = generateCaptcha();
+
+    loginForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const id = document.getElementById("login-id").value;
+        const password = document.getElementById("login-password").value;
+        const enteredCaptcha = parseInt(captchaInput.value, 10);
+
+        if (!id || !password) {
+            alert("ID and password are required.");
+            return;
+        }
+
+        if (enteredCaptcha !== captchaAnswer) {
+            alert("Incorrect CAPTCHA. Try again.");
+            captchaInput.value = "";
+            captchaAnswer = generateCaptcha();
+            return;
+        }
+
+        // Hide login and show main content
+        loginContainer.style.display = "none";
+        mainContent.style.display = "block";
+    });
+
+    showSection(mainSection);
+    if (localStorage.getItem("theme") === "light") {
+        document.body.classList.add("light-mode");
+    }
+});
 
 // Function to show only the selected section with fade-in effect
 function showSection(sectionToShow) {
-    // Hide all sections
     [mainSection, expensesSection, visualSection, balanceSection].forEach(section => {
-        section.style.display = "none"; // Hide section
-        section.style.opacity = "0"; // Reset opacity for fade-in effect
+        section.style.display = "none";
+        section.style.opacity = "0";
     });
 
-    // Show the selected section
     sectionToShow.style.display = "block";
-
-    // Fade-in effect
     setTimeout(() => {
         sectionToShow.style.opacity = "1";
     }, 50);
@@ -50,11 +92,11 @@ mainBtn.addEventListener("click", () => showSection(mainSection));
 expensesBtn.addEventListener("click", () => showSection(expensesSection));
 visualBtn.addEventListener("click", () => {
     showSection(visualSection);
-    generateChart();
+    updateChart();
 });
 balanceBtn.addEventListener("click", () => showSection(balanceSection));
 
-// Function to add expense
+// Function to add an expense
 addBtn.addEventListener("click", function () {
     const category = categorySelect.value;
     const amount = parseFloat(amountInput.value);
@@ -65,19 +107,15 @@ addBtn.addEventListener("click", function () {
         return;
     }
 
-    // Add new expense
     expenses.push({ category, amount, date });
     updateTable();
-
-    // Show success message
     showStatusMessage("Successfully Added", "green");
 
-    // Clear input fields
     amountInput.value = "";
     dateInput.value = "";
 });
 
-// Function to update table
+// Function to update the expenses table
 function updateTable() {
     expensesTableBody.innerHTML = "";
     totalAmount = expenses.reduce((sum, exp) => sum + exp.amount, 0);
@@ -95,16 +133,22 @@ function updateTable() {
     totalAmountCell.textContent = `$${totalAmount.toFixed(2)}`;
 }
 
-// Function to delete expense
+// Function to delete an expense
 function deleteExpense(index) {
     expenses.splice(index, 1);
     updateTable();
 }
 
-// Function to generate Pie Chart
-function generateChart() {
+// Function to generate the Pie Chart
+function updateChart() {
+    const selectedDate = dateFilter.value;
     const ctx = document.getElementById("expenseChart").getContext("2d");
-    const categoryTotals = expenses.reduce((acc, exp) => {
+
+    const filteredExpenses = selectedDate
+        ? expenses.filter(exp => exp.date === selectedDate)
+        : expenses;
+
+    const categoryTotals = filteredExpenses.reduce((acc, exp) => {
         acc[exp.category] = (acc[exp.category] || 0) + exp.amount;
         return acc;
     }, {});
@@ -120,13 +164,11 @@ function generateChart() {
         type: "pie",
         data: {
             labels: labels,
-            datasets: [
-                {
-                    data: data,
-                    backgroundColor: ["#4CAF50", "#f44336", "#FFC107", "#2196F3"],
-                },
-            ],
-        },
+            datasets: [{
+                data: data,
+                backgroundColor: ["#4CAF50", "#f44336", "#FFC107", "#2196F3"],
+            }],
+        }
     });
 }
 
@@ -151,18 +193,8 @@ function showStatusMessage(message, color) {
 // Function to toggle theme
 themeBtn.addEventListener("click", () => {
     document.body.classList.toggle("light-mode");
-
-    // Save theme preference in local storage
     localStorage.setItem("theme", document.body.classList.contains("light-mode") ? "light" : "dark");
 });
 
-// Apply saved theme on page load & Ensure "Main" is visible by default
-window.onload = () => {
-    showSection(mainSection); // Show the main section initially
-
-    // Apply saved theme preference
-    if (localStorage.getItem("theme") === "light") {
-        document.body.classList.add("light-mode");
-    }
-};
-
+// Add event listener for the date filter in the Pie Chart
+dateFilter.addEventListener("change", updateChart);
