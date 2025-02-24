@@ -1269,6 +1269,254 @@ h1 span {
     width: 100%;
   }
 }
+/* Fullscreen Background Fix */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: url('background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Main Container */
+#login-container {
+  display: flex;
+  width: 80%;
+  max-width: 900px;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Left Side - Image */
+.login-image-container {
+  flex: 1;
+  background: url('background.jpg') no-repeat center center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 20px;
+  color: white;
+  text-align: center;
+}
+
+.login-caption {
+  font-size: 14px;
+  max-width: 80%;
+  margin-bottom: 30px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 10px;
+  border-radius: 8px;
+}
+
+/* Right Side - Login Form */
+.login-form-container {
+  flex: 1;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.login-form-container h2 {
+  font-size: 26px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.login-subtext {
+  font-size: 14px;
+  text-align: center;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* Form Inputs */
+.input-box {
+  position: relative;
+  width: 100%;
+  max-width: 350px;
+  margin-bottom: 15px;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+.input-box i {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #999;
+  cursor: pointer;
+}
+
+/* ✅ Fixing CAPTCHA Visibility */
+.captcha-container {
+  text-align: center;
+  margin-bottom: 15px;
+  background: #f3f3f3;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.captcha-container input {
+  width: 100%;
+  max-width: 150px;
+  text-align: center;
+  font-size: 16px;
+}
+
+/* Remember Me & Forgot Password */
+.remember-me {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  width: 100%;
+  max-width: 350px;
+  margin-bottom: 15px;
+}
+
+.remember-me input {
+  margin-right: 5px;
+}
+
+.forgot-password {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+/* ✅ Centered Login Button */
+.login-btn {
+  width: 100%;
+  max-width: 350px;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #1a1a1a;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  text-align: center;
+  display: block;
+  margin: auto;
+}
+
+.login-btn:hover {
+  background-color: #333;
+}
+
+/* OR Text */
+.or-text {
+  font-size: 14px;
+  color: #666;
+  text-align: center;
+  margin: 15px 0;
+}
+
+/* ✅ Fixed Social Logins */
+.social-login {
+  width: 100%;
+  max-width: 350px;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Icons inside Social Buttons */
+.social-login i {
+  margin-right: 10px;
+}
+
+/* Social Button Colors */
+.google {
+  background-color: white;
+  color: black;
+  border: 1px solid #ccc;
+}
+
+.google:hover {
+  background-color: #f0f0f0;
+}
+
+.apple {
+  background-color: black;
+  color: white;
+}
+
+.apple:hover {
+  background-color: #333;
+}
+
+.facebook {
+  background-color: #1877f2;
+  color: white;
+}
+
+.facebook:hover {
+  background-color: #1359b2;
+}
+
+/* ✅ Fixing Signup Text */
+.signup-text {
+  font-size: 14px;
+  text-align: center;
+}
+
+.signup-text a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.signup-text a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  #login-container {
+    flex-direction: column;
+    width: 90%;
+  }
+
+  .login-image-container {
+    display: none;
+  }
+
+  .login-form-container {
+    width: 100%;
+  }
+}
 
 
 
