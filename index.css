@@ -139,7 +139,7 @@ body.light-mode .delete-btn:hover {
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px
+    margin-top: 5px
 }
 
 td,th {
