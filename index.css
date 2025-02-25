@@ -1,2959 +1,1258 @@
 @keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(100px); /* Start off-screen to the left */
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+    0% {
+        opacity: 0;
+        transform: translateX(100px)
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0)
+    }
 }
+
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px); /* Slight lift effect */
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-
-/* Dark Mode - Full Background */
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: url('background.jpg') no-repeat center center fixed;
-  background-size: cover;
-  background-attachment: fixed;
-  min-height: 100vh; /* Ensures full coverage */
-  color: #e3e7ee;
-  transition: background 0.3s, color 0.3s;
-}
-
-/* Light Mode - Full Background */
-body.light-mode {
-  background: url('background1.jpg') no-repeat center center fixed !important;
-  background-size: cover;
-  background-attachment: fixed;
-  min-height: 100vh;
-  color: #333 !important;
-}
-
-.navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between; /* Distribute items */
-  width: 100vw; /* Ensure full width */
-  max-width: 100%; /* Prevent overflow */
-  height: 70px;
-  background-color: black;
-  color: white;
-  padding: 10px 20px; /* Adjust padding */
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-  transition: background 0.3s;
-  font-family: "Oswald";
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-.navbar h1 { 
-  overflow: hidden;
-  text-overflow: ellipsis; /* Truncate text if too long */
-  max-width: 90%; /* Ensures it doesn't overflow */
-  white-space: nowrap;
-}
-
-
-
-body.light-mode .navbar {
-  background-color: #f0f0f0 !important;
-  color: black !important;
-}
-
-/* Sidebar */
-.sidebar {
-  position: fixed;
-  top: 80px;
-  left: 0;
-  width: 250px;
-  background-color: #1a1a1a;
-  height: calc(100vh - 80px);
-  padding: 10px;
-  border-right: 1px solid #333;
-  overflow-y: auto;
-  transition: background 0.3s;
-}
-
-body.light-mode .sidebar {
-  background-color: #f9f9f9 !important;
-  border-right: 1px solid #ccc;
-}
-
-/* Sidebar Buttons */
-.sidebar-btn button{
-  background-color: #2c2c2c;
-  color: white;
-  font-size: 1rem;
-  margin: 5px 0;
-  padding: 12px 15px;
-  width: 100%;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.2s, color 0.2s;
-  margin-right: 8px; /* Adds space between the icon and text */
-  font-size: 1.2rem; /* Adjusts icon size */
-  vertical-align: middle;
-  font-family: "Lexend Giga";
-}
-
-body.light-mode .sidebar-btn button {
-  background-color: #ddd !important;
-  color: black !important;
-}
-
-.sidebar-btn button:hover {
-  background-color: #444;
-}
-
-body.light-mode .sidebar-btn button:hover {
-  background-color: #bbb !important;
-}
-
-/* Content Area */
-.content {
-  margin-left: 270px;
-  padding: 20px;
-  margin-top: 80px;
-  transition: background 0.3s, color 0.3s;
-  font-family: "Arsenal SC";
-}
-
-body.light-mode .content {
-  background-color: #ffffff !important;
-  color: black !important;
-}
-
-/* Form Inputs */
-.main-section {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  max-width: 400px;
-  animation: fadeIn 1.5s ease-in-out; /* 1.5s smooth fade-in */
-  opacity: 1; /* Ensure visibility */
-}
-
-.main-section input, .main-section select {
-  padding: 8px;
-  border-radius: 6px;
-  border: 1px solid #444;
-  background-color: #222;
-  color: white;
-  transition: background 0.3s, color 0.3s;
-}
-
-body.light-mode .main-section input,
-body.light-mode .main-section select {
-  background-color: #f9f9f9 !important;
-  border: 1px solid #aaa;
-  color: black !important;
-}
-
-/* Add Button */
-#add-btn {
-  padding: 10px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-}
-
-#add-btn:hover {
-  background-color: #45a049 !important; /* Dark Mode Hover */
-}
-
-body.light-mode #add-btn {
-  background-color: #28a745 !important;
-  color: white;
-}
-
-body.light-mode #add-btn:hover {
-  background-color: #218838 !important; /* Light Mode Hover */
-}
-
-/* Delete Button */
-.delete-btn {
-  padding: 5px 10px;
-  background-color: #f44336;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-}
-
-.delete-btn:hover {
-  background-color: #d32f2f !important; /* Dark Mode Hover */
-}
-
-body.light-mode .delete-btn {
-  background-color: #dc3545 !important;
-  color: white;
-}
-
-body.light-mode .delete-btn:hover {
-  background-color: #c82333 !important; /* Light Mode Hover */
-}
-
-/* Table */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-
-th, td {
-  border: 1px solid #ddd;
-  padding: 8px;
-  text-align: left;
-}
-
-th {
-  background-color: #4CAF50;
-  color: white;
-}
-
-body.light-mode th {
-  background-color: #28a745 !important;
-}
-
-/* Table Alternating Row Colors */
-tbody tr:nth-child(odd) {
-  background-color: #1a1a1a;
-}
-
-tbody tr:nth-child(even) {
-  background-color: #222;
-}
-
-body.light-mode tbody tr:nth-child(odd) {
-  background-color: #f5f5f5;
-}
-
-body.light-mode tbody tr:nth-child(even) {
-  background-color: #eaeaea;
-}
-
-/* Status Message */
-.status-message {
-  color: #4CAF50;
-  font-weight: bold;
-  font-size: 1rem;
-  margin-top: 10px;
-  opacity: 1;
-  transition: opacity 0.5s ease-in-out;
-}
-
-.hidden {
-  opacity: 0;
-}
-
-/* Pie Chart Size */
-#expenseChart {
-  max-width: 300px;
-  max-height: 300px;
-  margin: auto;
-}
-
-/* Hide Sections Initially */
-.hidden {
-  display: none;
-}
-
-/* Theme Toggle Button */
-#theme-btn {
-  background-color: #555;
-  color: white;
-  padding: 10px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-#theme-btn:hover {
-  background-color: #777;
-}
-
-body.light-mode #theme-btn {
-  background-color: #ddd;
-  color: black;
-}
-
-body.light-mode #theme-btn:hover {
-  background-color: #bbb;
-}
-/* Default Dark Mode - Icons White */
-.sidebar-btn button i {
-  color: white;
-  transition: color 0.3s ease-in-out;
-  margin-right: 5px;
-}
-
-/* Light Mode - Icons Black */
-body.light-mode .sidebar-btn button i {
-  color: black !important;
-}
-.content {
-  margin-left: 270px;
-  padding: 20px;
-  margin-top: 80px;
-  background: transparent !important;
-  transition: background 0.3s, color 0.3s;
-}
-
-body.light-mode .content {
-  background: transparent !important;
-  color: black !important;
-}
-.navbar h1 {
-  animation: slideInLeft 1s ease-in-out; /* Smooth slide-in effect */
-  opacity: 1;
-}
-section {
-  opacity: 0; /* Initially hidden */
-  display: none; /* Hide sections initially */
-  animation: fadeIn 0.5s ease-in-out forwards;
-}
-
-/* Ensure active section is visible */
-.active-section {
-  display: block;
-  opacity: 1;
-}
-#main-section {
-  display: block;
-  opacity: 1;
-}
-#calculate-balance {
-  border-radius: 8px;
-  background-color: #686D76; /* Neutral color */
-  color: white; /* Text color for contrast */
-  border: none;
-  padding: 10px 16px;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-}
-
-/* Hover effect */
-#calculate-balance:hover {
-  background-color: #545960; /* Slightly darker for hover */
-  transform: scale(1.05); /* Smooth hover effect */
-}
-
-/* Active (Click) effect */
-#calculate-balance:active {
-  transform: scale(0.98);
-}
-
-/* Light Mode Styles */
-.light-mode #calculate-balance {
-  background-color: #d1d5db; /* Light gray */
-  color: black;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-/* Light Mode Hover Effect */
-.light-mode #calculate-balance:hover {
-  background-color: #bfc4ca; /* Slightly darker on hover */
-}
-/* Main Section Styling */
-#main-section {
-  background: rgba(255, 255, 255, 0.1); /* Light glass effect */
-  backdrop-filter: blur(10px); /* Glassmorphism */
-  border-radius: 12px;
-  padding: 20px;
-  max-width: 600px;
-  margin: auto;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-  transition: 0.3s ease-in-out;
-}
-
-/* Headings */
-#main-section h2 {
-  font-size: 24px;
-  font-weight: bold;
-  text-align: center;
-  margin-bottom: 15px;
-  color: #333; /* Default dark text */
-}
-
-/* Inputs & Select Styling */
-/* Ensure input fields fit inside the form */
-#main-section select,
-#main-section input {
-  width: 100%; /* Make them fully responsive */
-  max-width: 500px; /* Prevent excessive width */
-  padding: 10px;
-  margin-bottom: 12px;
-  border: 2px solid #ccc;
-  border-radius: 6px;
-  font-size: 16px;
-  transition: border 0.3s;
-  box-sizing: border-box; /* Prevents overflow */
-}
-
-
-/* Hover and Focus Effects */
-#main-section select:hover,
-#main-section input:hover,
-#main-section select:focus,
-#main-section input:focus {
-  border-color: #4CAF50; /* Green border highlight */
-  outline: none;
-}
-
-/* Add Button Styling */
-#add-btn {
-  width: 100%;
-  padding: 12px;
-  font-size: 18px;
-  font-weight: bold;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-/* Hover effect for Add Button */
-#add-btn:hover {
-  background-color: #45a049;
-}
-
-/* Status Message */
-#status-text {
-  text-align: center;
-  font-size: 16px;
-  font-weight: bold;
-  margin-top: 10px;
-}
-
-/* 🔥 Light Mode Styling */
-.light-mode #main-section {
-  background: rgba(255, 255, 255, 0.8);
-  color: #000;
-}
-
-.light-mode #main-section h2 {
-  color: #222;
-}
-
-/* 🌙 Dark Mode Styling */
-.dark-mode #main-section {
-  background: rgba(0, 0, 0, 0.6);
-  color: white;
-}
-
-.dark-mode #main-section h2 {
-  color: #fff;
-}
-
-.dark-mode #add-btn {
-  background-color: #686D76;
-}
-
-.dark-mode #add-btn:hover {
-  background-color: #555A60;
-}
-/* Ensure form fields align properly */
-#main-section .form-group {
-  display: flex;
-  flex-direction: column; /* Stack label and input */
-  width: 100%;
-}
-
-/* Make all input fields uniform */
-#main-section select,
-#main-section input {
-  width: 100%;
-  max-width: 100%;
-  padding: 10px;
-  margin-bottom: 12px;
-  border: 2px solid #ccc;
-  border-radius: 6px;
-  font-size: 16px;
-  transition: border 0.3s ease-in-out;
-  box-sizing: border-box;
-}
-
-/* Adjust the Date input */
-#date-input {
-  width: 100%; /* Ensure same width as other fields */
-  margin-top: 0px; /* Remove extra gap */
-}
-
-/* Align labels properly */
-#main-section label {
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-/* Responsive Fix */
-@media (max-width: 600px) {
-  #main-section .form-group {
-    width: 100%;
-  }
-}
-/* Default (Light Mode) - Black Text */
-#main-section h2 {
-  color: black;
-  font-weight: bold;
-  text-align: center;
-  font-size: 24px;
-}
-
-/* Dark Mode - White Text */
-.dark-mode #main-section h2 {
-  color: white;
-}
-/* Style the Current Balance Section */
-#balance-section {
-  background: rgba(255, 255, 255, 0.1); /* Light glass effect */
-  backdrop-filter: blur(10px); /* Glassmorphism */
-  border-radius: 12px;
-  padding: 20px;
-  max-width: 500px;
-  margin: auto;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-  transition: 0.3s ease-in-out;
-}
-
-/* Headings */
-#balance-section h2 {
-  font-size: 24px;
-  font-weight: bold;
-  text-align: center;
-  margin-bottom: 15px;
-  color: white; /* Default for dark mode */
-}
-
-/* Labels */
-#balance-section label {
-  font-weight: bold;
-  display: block;
-  margin-top: 10px;
-  color: white;
-}
-
-/* Input Field */
-#income-input {
-  width: 100%;
-  padding: 10px;
-  border: 2px solid #ccc;
-  border-radius: 6px;
-  font-size: 16px;
-  transition: border 0.3s;
-  box-sizing: border-box;
-  background: rgba(255, 255, 255, 0.2);
-  color: white;
-}
-
-/* Balance Display */
-#remaining-balance {
-  font-size: 18px;
-  font-weight: bold;
-  color: #4CAF50; /* Green balance text */
-}
-
-/* Calculate Button */
-#calculate-balance {
-  width: 100%;
-  padding: 12px;
-  font-size: 18px;
-  font-weight: bold;
-  background-color: #686D76;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-/* Button Hover */
-#calculate-balance:hover {
-  background-color: #545960;
-  transform: scale(1.05);
-}
-
-/* Light Mode Styling */
-.light-mode #balance-section {
-  background: rgba(255, 255, 255, 0.8);
-  color: #000;
-}
-
-.light-mode #balance-section h2,
-.light-mode #balance-section label {
-  color: black;
-}
-
-.light-mode #income-input {
-  background: rgba(0, 0, 0, 0.1);
-  color: black;
-}
-
-.light-mode #remaining-balance {
-  color: #2d7d46;
-}
-
-.light-mode #calculate-balance {
-  background-color: #d1d5db;
-  color: black;
-}
-
-.light-mode #calculate-balance:hover {
-  background-color: #bfc4ca;
-}
-/* Style the Visual Representation Section */
-#visual-section {
-  background: rgba(255, 255, 255, 0.1); /* Glassmorphism effect */
-  backdrop-filter: blur(10px);
-  border-radius: 12px;
-  padding: 20px;
-  max-width: 600px;
-  margin: auto;
-  text-align: center;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-  transition: 0.3s ease-in-out;
-}
-
-/* Heading Style */
-#visual-section h2 {
-  font-size: 24px;
-  font-weight: bold;
-  text-align: center;
-  color: black; /* Light mode text */
-}
-
-/* Center the chart */
-#expenseChart {
-  display: block;
-  margin: auto;
-  max-width: 100%;
-  width: 80%;
-}
-
-/* Light Mode Styles */
-.light-mode #visual-section {
-  background: rgba(255, 255, 255, 0.8);
-  color: #000;
-}
-
-.light-mode #visual-section h2 {
-  color: black;
-}
-
-/* Dark Mode Styles */
-.dark-mode #visual-section {
-  background: rgba(0, 0, 0, 0.6);
-  color: white;
-}
-
-.dark-mode #visual-section h2 {
-  color: white;
-}
-/* Style the Expenses Table */
-#expenses-section table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 10px;
-}
-
-/* Table Headers */
-#expenses-section th {
-  background-color: #4CAF50; /* Green header */
-  color: white;
-  padding: 12px;
-  text-align: left;
-  font-weight: bold;
-}
-
-/* Table Rows */
-#expenses-section tr {
-  transition: background 0.3s ease-in-out;
-}
-
-/* Table Cells */
-#expenses-section td {
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
-}
-
-/* Hover Effect */
-#expenses-section tr:hover {
-  background-color: rgba(76, 175, 80, 0.2); /* Light green hover */
-}
-
-/* Delete Button */
-.delete-btn {
-  background-color: #dc3545;
-  color: white;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background 0.3s ease-in-out;
-}
-
-/* Delete Button Hover */
-.delete-btn:hover {
-  background-color: #c82333;
-}
-
-/* Light Mode Styles */
-.light-mode #expenses-section th {
-  background-color: #2d7d46;
-}
-
-.light-mode #expenses-section tr:hover {
-  background-color: rgba(0, 0, 0, 0.1); /* Light gray hover */
-}
-
-/* Dark Mode Styles */
-.dark-mode #expenses-section th {
-  background-color: #4CAF50;
-}
-
-.dark-mode #expenses-section tr:hover {
-  background-color: rgba(255, 255, 255, 0.1); /* Light effect in dark mode */
-}
-.sidebar-btn button {
-  display: flex;
-  align-items: center;
-  background: rgba(44, 44, 44, 0.9);
-  color: white;
-  font-size: 1rem;
-  padding: 12px 15px;
-  width: 100%;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.2s ease-in-out, transform 0.2s;
-  font-family: "Lexend Giga", sans-serif;
-  margin-top: 10px;
-}
-
-.sidebar-btn button i {
-  margin-right: 10px;
-}
-
-/* Sidebar Hover Effect */
-.sidebar-btn button:hover {
-  background: rgba(76, 175, 80, 0.8);
-  transform: translateX(5px);
-}
-
-/* Light Mode Sidebar Buttons */
-body.light-mode .sidebar-btn button {
-  background: rgba(220, 220, 220, 0.9);
-  color: black;
-}
-
-body.light-mode .sidebar-btn button:hover {
-  background: rgba(72, 138, 199, 0.8);
-}
-/* 📌 Responsive Navbar */
-@media (max-width: 1024px) {
-  .navbar {
-    height: 60px;
-    padding: 8px 15px;
-  }
-
-  .navbar h1 {
-    font-size: 20px;
-  }
-
-  .content {
-    margin-left: 250px;
-    margin-top: 60px;
-  }
-}
-
-/* 📌 Adjust Sidebar for Smaller Screens */
-@media (max-width: 768px) {
-  .sidebar {
-    width: 200px;
-    top: 60px;
-    height: calc(100vh - 60px);
-  }
-
-  .sidebar-btn button {
-    font-size: 1rem;
-    padding: 10px;
-  }
-
-  .content {
-    margin-left: 220px;
-  }
-}
-
-/* 📌 Mobile Optimization (Phones) */
-@media (max-width: 600px) {
-  .navbar {
-    height: 55px;
-    padding: 8px;
-  }
-
-  .navbar h1 {
-    font-size: 18px;
-  }
-
-  /* 📌 Sidebar becomes a collapsible menu */
-  .sidebar {
-    width: 100px;
-    height: calc(100vh - 55px);
-  }
-
-  .sidebar-btn button {
-    font-size: 0.9rem;
-    padding: 8px;
-    text-align: center;
-  }
-
-  .sidebar-btn button i {
-    margin-right: 0;
-  }
-
-  .content {
-    margin-left: 110px;
-    padding: 15px;
-  }
-
-  /* 📌 Make form inputs & buttons larger for touch */
-  input, select, button {
-    font-size: 16px;
-    padding: 12px;
-  }
-}
-
-/* 📌 Fully Collapsible Sidebar for Very Small Devices */
-@media (max-width: 480px) {
-  .sidebar {
-    width: 80px;
-  }
-
-  .sidebar-btn button {
-    padding: 6px;
-    font-size: 0.8rem;
-  }
-
-  .content {
-    margin-left: 90px;
-    padding: 10px;
-  }
-}
-
-/* 📌 Ensure Tables Fit on Mobile */
-@media (max-width: 768px) {
-  table {
-    display: block;
-    overflow-x: auto;
-    white-space: nowrap;
-  }
-
-  th, td {
-    padding: 6px;
-    font-size: 14px;
-  }
-}
-
-/* 📌 Adjust Form Fields for Mobile */
-@media (max-width: 600px) {
-  .main-section {
-    max-width: 90%;
-    margin: auto;
-  }
-
-  .main-section input, 
-  .main-section select {
-    width: 100%;
-  }
-
-  #add-btn {
-    width: 100%;
-  }
-}
-#login-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(10px);
-  color: white;
-  text-align: center;
-}
-
-.form-container {
-  background: rgba(0, 0, 0, 0.6);
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-  width: 100%;
-  max-width: 400px;
-}
-
-.input-box input {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  background: rgba(255, 255, 255, 0.2);
-  color: white;
-}
-
-.captcha-container {
-  margin-top: 10px;
-}
+    0% {
+        opacity: 0;
+        transform: translateY(20px)
+    }
 
-button {
-  width: 100%;
-  padding: 10px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
+    to {
+        opacity: 1;
+        transform: translateY(0)
+    }
 }
 
-button:hover {
-  background-color: #45a049;
+body,body.light-mode {
+    background-attachment: fixed;
+    min-height: 100vh;
+    background-size: cover
 }
-/* Import Google Font */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
 body {
-    margin: 0;
     padding: 0;
-    font-family: 'Poppins', sans-serif;
-    background: radial-gradient(circle at top, #0D0D0D, #161616); 
-    color: white;
+    background: radial-gradient(circle at top,#0d0d0d,#161616);
+    margin: 0;
+    font-family: "Poppins",sans-serif;
+    background: url(background.jpg)no-repeat center center fixed;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    overflow: hidden;
+    transition: background .3s,color .3s
 }
 
-/* Glassmorphic Login Box */
+body.light-mode {
+    background: url(background1.jpg)no-repeat center center fixed!important;
+    color: #000!important
+}
+
+.navbar,.navbar h1 {
+    max-width: 100%;
+    overflow: hidden
+}
+
+.navbar h1 {
+    text-overflow: ellipsis;
+    max-width: 90%;
+    white-space: nowrap;
+    animation: slideInLeft 1s ease-in-out;
+    opacity: 1
+}
+
+.sidebar {
+    transition: background .3s
+}
+
+.sidebar-btn button {
+    background-color: #2c2c2c;
+    vertical-align: middle;
+    margin: 10px 8px 5px 0
+}
+
+body.light-mode .sidebar-btn button {
+    background-color: #ddd!important;
+    color: #000!important;
+    background: rgba(220,220,220,.9)
+}
+
+.sidebar-btn button:hover {
+    background-color: #444;
+    background: rgba(76,175,80,.8);
+    transform: translateX(5px)
+}
+
+body.light-mode .sidebar-btn button:hover {
+    background-color: #bbb!important;
+    background: rgba(72,138,199,.8)
+}
+
+.main-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 400px;
+    animation: fadeIn 1.5s ease-in-out;
+    opacity: 1
+}
+
+.main-section input,.main-section select {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #444;
+    background-color: #222;
+    color: #fff;
+    transition: background .3s,color .3s
+}
+
+body.light-mode .main-section input,body.light-mode .main-section select {
+    background-color: #f9f9f9!important;
+    border: 1px solid #aaa;
+    color: #000!important
+}
+
+#add-btn:hover {
+    background-color: #45a049!important
+}
+
+body,body.light-mode #add-btn {
+    color: #fff
+}
+
+body.light-mode #add-btn:hover {
+    background-color: #218838!important
+}
+
+.delete-btn:hover {
+    background-color: #d32f2f!important
+}
+
+body.light-mode .delete-btn {
+    background-color: #dc3545!important;
+    color: #fff
+}
+
+body.light-mode .delete-btn:hover {
+    background-color: #c82333!important
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px
+}
+
+td,th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left
+}
+
+th {
+    background-color: #4caf50;
+    color: #fff
+}
+
+body.light-mode #add-btn,body.light-mode th {
+    background-color: #28a745!important
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #1a1a1a
+}
+
+tbody tr:nth-child(even) {
+    background-color: #222
+}
+
+body.light-mode tbody tr:nth-child(odd) {
+    background-color: #f5f5f5
+}
+
+body.light-mode tbody tr:nth-child(even) {
+    background-color: #eaeaea
+}
+
+.status-message {
+    color: #4caf50;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-top: 10px;
+    opacity: 1;
+    transition: opacity .5s ease-in-out
+}
+
+.hidden,section {
+    opacity: 0;
+    display: none
+}
+
+#expenseChart {
+    max-height: 300px
+}
+
+#theme-btn {
+    background-color: #555;
+    color: #fff;
+    padding: 10px;
+    border: 0;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color .3s
+}
+
+#theme-btn:hover {
+    background-color: #777
+}
+
+body.light-mode #theme-btn {
+    background-color: #ddd;
+    color: #000
+}
+
+body.light-mode #theme-btn:hover {
+    background-color: #bbb
+}
+
+.sidebar-btn button i {
+    color: #fff;
+    transition: color .3s ease-in-out
+}
+
+body.light-mode .sidebar-btn button i {
+    color: #000!important
+}
+
+.content,body.light-mode .content {
+    background: 0 0!important
+}
+
+section {
+    animation: fadeIn .5s ease-in-out forwards
+}
+
+#main-section,.active-section {
+    display: block;
+    opacity: 1
+}
+
+#calculate-balance {
+    box-shadow: 2px 2px 5px rgba(0,0,0,.2)
+}
+
+#calculate-balance:active {
+    transform: scale(.98)
+}
+
+.light-mode #calculate-balance {
+    box-shadow: 2px 2px 5px rgba(0,0,0,.1)
+}
+
+#main-section {
+    background: rgba(255,255,255,.1);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 20px;
+    max-width: 600px;
+    margin: auto;
+    box-shadow: 0 4px 10px rgba(0,0,0,.2);
+    transition: .3s ease-in-out
+}
+
+#main-section h2 {
+    margin-bottom: 15px;
+    color: #000;
+    font-weight: 700;
+    text-align: center;
+    font-size: 24px
+}
+
+#main-section input,#main-section select {
+    width: 100%;
+    max-width: 100%;
+    padding: 10px;
+    margin-bottom: 12px;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border .3s ease-in-out;
+    box-sizing: border-box
+}
+
+#main-section input:focus,#main-section input:hover,#main-section select:focus,#main-section select:hover {
+    border-color: #4caf50;
+    outline: 0
+}
+
+#add-btn,#expenses-section th {
+    color: #fff;
+    padding: 12px;
+    font-weight: 700
+}
+
+#add-btn {
+    width: 100%;
+    font-size: 18px;
+    background-color: #4caf50;
+    border: 0;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: .3s
+}
+
+#add-btn:hover {
+}
+
+#status-text {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 10px
+}
+
+.light-mode #main-section {
+    background: rgba(255,255,255,.8);
+    color: #000
+}
+
+.light-mode #main-section h2 {
+    color: #222
+}
+
+.dark-mode #main-section {
+    background: rgba(0,0,0,.6);
+    color: #fff
+}
+
+.dark-mode #main-section h2 {
+    color: #fff
+}
+
+.dark-mode #add-btn {
+    background-color: #686d76
+}
+
+.dark-mode #add-btn:hover {
+    background-color: #555a60
+}
+
+#main-section .form-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%
+}
+
+#date-input {
+    width: 100%;
+    margin-top: 0
+}
+
+#main-section label {
+    font-weight: 700;
+    margin-bottom: 5px
+}
+
+@media (max-width:600px) {
+    #main-section .form-group {
+        width: 100%
+    }
+}
+
+#balance-section {
+    background: rgba(255,255,255,.1);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 20px;
+    max-width: 500px;
+    margin: auto;
+    box-shadow: 0 4px 10px rgba(0,0,0,.2);
+    transition: .3s ease-in-out
+}
+
+#balance-section h2,#visual-section h2 {
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center
+}
+
+#balance-section h2 {
+    margin-bottom: 15px;
+    color: #fff
+}
+
+#balance-section label {
+    font-weight: 700;
+    display: block;
+    margin-top: 10px;
+    color: #fff
+}
+
+#income-input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border .3s;
+    box-sizing: border-box;
+    background: rgba(255,255,255,.2);
+    color: #fff
+}
+
+#calculate-balance,#remaining-balance {
+    font-size: 18px;
+    font-weight: 700;
+    color: #4caf50
+}
+
+#calculate-balance {
+    width: 100%;
+    padding: 12px;
+    background-color: #686d76;
+    color: #fff;
+    border: 0;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: .3s
+}
+
+#calculate-balance:hover {
+    background-color: #545960;
+    transform: scale(1.05)
+}
+
+.light-mode #balance-section {
+    background: rgba(255,255,255,.8);
+    color: #000
+}
+
+.light-mode #balance-section h2,.light-mode #balance-section label,.light-mode #visual-section h2 {
+    color: #000
+}
+
+.light-mode #income-input {
+    background: rgba(0,0,0,.1);
+    color: #000
+}
+
+.light-mode #remaining-balance {
+    color: #2d7d46
+}
+
+.light-mode #calculate-balance {
+    background-color: #d1d5db;
+    color: #000
+}
+
+.light-mode #calculate-balance:hover {
+    background-color: #bfc4ca
+}
+
+#visual-section {
+    background: rgba(255,255,255,.1);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 20px;
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,.2);
+    transition: .3s ease-in-out
+}
+
+#visual-section h2 {
+    color: #000
+}
+
+#expenseChart {
+    display: block;
+    margin: auto;
+    max-width: 100%;
+    width: 80%
+}
+
+.light-mode #visual-section {
+    background: rgba(255,255,255,.8);
+    color: #000
+}
+
+.dark-mode #visual-section {
+    background: rgba(0,0,0,.6);
+    color: #fff
+}
+
+.dark-mode #visual-section h2 {
+    color: #fff
+}
+
+#expenses-section table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px
+}
+
+#expenses-section th {
+    text-align: left
+}
+
+#expenses-section tr,.delete-btn {
+    transition: background .3s ease-in-out
+}
+
+#expenses-section td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd
+}
+
+#expenses-section tr:hover {
+    background-color: rgba(76,175,80,.2)
+}
+
+.delete-btn {
+    background-color: #dc3545;
+    color: #fff;
+    border: 0;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer
+}
+
+.light-mode #expenses-section th {
+    background-color: #2d7d46
+}
+
+.light-mode #expenses-section tr:hover {
+    background-color: rgba(0,0,0,.1)
+}
+
+#expenses-section th,.dark-mode #expenses-section th {
+    background-color: #4caf50
+}
+
+.dark-mode #expenses-section tr:hover {
+    background-color: rgba(255,255,255,.1)
+}
+
+@media (max-width:1024px) {
+    .navbar {
+        height: 60px;
+        padding: 8px 15px
+    }
+
+    .navbar h1 {
+        font-size: 20px
+    }
+
+    .content {
+        margin-left: 250px;
+        margin-top: 60px
+    }
+}
+
+@media (max-width:768px) {
+    .sidebar {
+        width: 200px;
+        top: 60px;
+        height: calc(100vh - 60px)
+    }
+
+    .sidebar-btn button {
+        font-size: 1rem;
+        padding: 10px
+    }
+
+    .content {
+        margin-left: 220px
+    }
+}
+
+@media (max-width:600px) {
+    .navbar {
+        height: 55px;
+        padding: 8px
+    }
+
+    .navbar h1 {
+        font-size: 18px
+    }
+
+    .sidebar {
+        width: 100px;
+        height: calc(100vh - 55px)
+    }
+
+    .sidebar-btn button {
+        font-size: .9rem;
+        padding: 8px;
+        text-align: center
+    }
+
+    .sidebar-btn button i {
+        margin-right: 0
+    }
+
+    .content {
+        margin-left: 110px;
+        padding: 15px
+    }
+
+    button,input,select {
+        font-size: 16px;
+        padding: 12px
+    }
+}
+
+@media (max-width:480px) {
+    .sidebar {
+        width: 80px
+    }
+
+    .sidebar-btn button {
+        padding: 6px;
+        font-size: .8rem
+    }
+
+    .content {
+        margin-left: 90px;
+        padding: 10px
+    }
+}
+
+@media (max-width:768px) {
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap
+    }
+
+    td,th {
+        padding: 6px;
+        font-size: 14px
+    }
+}
+
+@media (max-width:600px) {
+    .main-section {
+        max-width: 90%;
+        margin: auto
+    }
+
+    #add-btn,.main-section input,.main-section select {
+        width: 100%
+    }
+}
+
+#login-container {
+    background: rgba(0,0,0,.6);
+    color: #fff;
+    width: 100vw;
+    font-family: "Arial",sans-serif
+}
+
+.form-container {
+    background: rgba(0,0,0,.6);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,.2);
+    width: 100%;
+    max-width: 400px
+}
+
+.input-box input {
+    margin-bottom: 10px;
+    background: rgba(255,255,255,.2)
+}
+
+.login-form input,button {
+    width: 100%;
+    border: 0;
+    color: #fff
+}
+
+button {
+    padding: 10px;
+    background-color: #4caf50;
+    border-radius: 6px;
+    cursor: pointer
+}
+
+button:hover {
+    background-color: #45a049
+}
+
 .login-container {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255,255,255,.1);
     padding: 30px 40px;
     border-radius: 15px;
     backdrop-filter: blur(10px);
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 16px rgba(0,0,0,.2);
     text-align: center;
-    width: 400px;
+    width: 400px
 }
 
 h1 {
     font-size: 1.8rem;
     font-weight: 600;
-    margin-bottom: 15px;
+    margin-bottom: 15px
 }
 
 h1 span {
-    color: #00FF88; /* Highlight Color */
+    color: #0f8
 }
 
-/* Input Fields */
 .login-form input {
-    width: 100%;
     padding: 12px;
     margin: 10px 0;
-    border: none;
     border-radius: 8px;
-    background: rgba(255, 255, 255, 0.2);
-    color: white;
+    background: rgba(255,255,255,.2);
     font-size: 1rem;
-    outline: none;
-    transition: 0.3s;
+    outline: 0;
+    transition: .3s
 }
 
-.login-form input::placeholder {
-    color: rgba(255, 255, 255, 0.6);
+.input-box input::placeholder,.login-form input::placeholder {
+    color: rgba(255,255,255,.6)
 }
 
 .login-form input:focus {
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(255,255,255,.3)
 }
 
-/* CAPTCHA Section */
 .captcha-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 15px 0;
+    margin: 15px 0
 }
 
 .captcha-question {
     font-size: 1.1rem;
-    font-weight: bold;
-    color: #00FF88;
+    font-weight: 700;
+    color: #0f8
 }
 
 .captcha-container input {
     flex: 1;
-    margin-left: 10px;
+    margin-left: 10px
 }
 
-/* Button Styling */
 .login-button {
     width: 100%;
     padding: 12px;
-    background: #00FF88;
-    border: none;
+    background: #0f8;
+    border: 0;
     border-radius: 8px;
     font-size: 1rem;
-    font-weight: bold;
+    font-weight: 700;
     cursor: pointer;
-    transition: 0.3s;
+    transition: .3s
 }
 
 .login-button:hover {
-    background: #00CC66;
-    transform: scale(1.05);
-}
-/* Split Layout */
-#login-container {
-  display: flex;
-  height: 100vh;
-  width: 100vw;
-  font-family: 'Arial', sans-serif;
+    background: #0c6;
+    transform: scale(1.05)
 }
 
-/* Left Side - Image */
 .login-image-container {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 20px;
-  color: white;
-  text-align: center;
-}
-
-
-.login-caption {
-  font-size: 14px;
-  max-width: 80%;
-  margin-bottom: 30px;
-  padding: 10px;
-  border-radius: 8px;
-}
-
-/* Right Side - Login Form */
-.login-form-container {
-  flex: 1;
-  background: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 40px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 20px;
+    color: #fff;
+    text-align: center
 }
 
 .login-form-container h2 {
-  font-size: 26px;
-  font-weight: bold;
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-.login-subtext {
-  font-size: 14px;
-  text-align: center;
-  color: #666;
-  margin-bottom: 20px;
-}
-
-/* Form Inputs */
-.input-box {
-  position: relative;
-  width: 100%;
-  max-width: 350px;
-  margin-bottom: 15px;
-}
-
-.input-box input {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 16px;
-}
-
-.input-box i {
-  position: absolute;
-  right: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #999;
-  cursor: pointer;
-}
-
-/* CAPTCHA */
-.captcha-container {
-  text-align: center;
-  margin-bottom: 15px;
+    font-size: 26px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 10px
 }
 
 .captcha-container p {
-  font-size: 16px;
-  font-weight: bold;
-  margin-bottom: 5px;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 5px
 }
 
-.captcha-container input {
-  width: 100%;
-  max-width: 150px;
-  text-align: center;
+@media (max-width:768px) {
+    #login-container {
+        flex-direction: column
+    }
+
+    .-container {
+        display: none
+    }
+
+    .login-form-container {
+        width: 100%
+    }
 }
 
-/* Remember Me & Forgot Password */
-.remember-me {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 14px;
-  width: 100%;
-  max-width: 350px;
-  margin-bottom: 15px;
-}
-
-.remember-me input {
-  margin-right: 5px;
-}
-
-.forgot-password {
-  color: #007bff;
-  text-decoration: none;
-}
-
-.forgot-password:hover {
-  text-decoration: underline;
-}
-
-/* Login Button */
-.login-btn {
-  width: 100%;
-  max-width: 350px;
-  padding: 12px;
-  font-size: 16px;
-  font-weight: bold;
-  background-color: #1a1a1a;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: 0.3s ease-in-out;
-}
-
-.login-btn:hover {
-  background-color: #333;
-}
-
-/* OR Text */
-.or-text {
-  font-size: 14px;
-  color: #666;
-  text-align: center;
-  margin: 15px 0;
-}
-
-/* Social Logins */
-.social-login {
-  width: 100%;
-  max-width: 350px;
-  padding: 12px;
-  font-size: 16px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 10px;
-}
-
-.social-login i {
-  margin-right: 10px;
-}
-
-/* Social Button Colors */
-.google {
-  background-color: white;
-  color: black;
-  border: 1px solid #ccc;
-}
-
-.google:hover {
-  background-color: #f0f0f0;
-}
-
-.apple {
-  background-color: black;
-  color: white;
-}
-
-.apple:hover {
-  background-color: #333;
-}
-
-.facebook {
-  background-color: #1877f2;
-  color: white;
-}
-
-.facebook:hover {
-  background-color: #1359b2;
-}
-
-/* Signup Text */
-.signup-text {
-  font-size: 14px;
-  text-align: center;
-}
-
-.signup-text a {
-  color: #007bff;
-  text-decoration: none;
-}
-
-.signup-text a:hover {
-  text-decoration: underline;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-  #login-container {
-    flex-direction: column;
-  }
-
-  .-container {
-    display: none;
-  }
-
-  .login-form-container {
-    width: 100%;
-  }
-}
-/* Fullscreen Background Fix */
-body {
-  margin: 0;
-  font-family: 'Arial', sans-serif;
-  background: url('background.jpg') no-repeat center center fixed;
-  background-size: cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-/* Main Container */
 #login-container {
-  display: flex;
-  width: 80%;
-  max-width: 900px;
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    background: #fff;
+    overflow: hidden
 }
 
-/* Left Side - Image */
 .-container {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 20px;
-  color: white;
-  text-align: center;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 20px;
+    color: #fff;
+    text-align: center
 }
 
 .login-caption {
-  font-size: 14px;
-  max-width: 80%;
-  margin-bottom: 30px;
-  padding: 10px;
-  border-radius: 8px;
+    font-size: 14px;
+    max-width: 80%;
+    margin-bottom: 30px;
+    padding: 10px;
+    border-radius: 8px
 }
 
-/* Right Side - Login Form */
 .login-form-container {
-  flex: 1;
-  background: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 40px;
-}
-
-.login-form-container h2 {
-  font-size: 26px;
-  font-weight: bold;
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-.login-subtext {
-  font-size: 14px;
-  text-align: center;
-  color: #666;
-  margin-bottom: 20px;
-}
-
-/* Form Inputs */
-.input-box {
-  position: relative;
-  width: 100%;
-  max-width: 350px;
-  margin-bottom: 15px;
-}
-
-.input-box input {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 16px;
-  color: black;
-  font-weight: bold;
-}
-
-.input-box i {
-  position: absolute;
-  right: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #999;
-  cursor: pointer;
-}
-
-/* ✅ Fixing CAPTCHA Visibility */
-.captcha-container {
-  text-align: center;
-  margin-bottom: 15px;
-  background: #f3f3f3;
-  padding: 10px;
-  border-radius: 8px;
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.captcha-container input {
-  width: 100%;
-  max-width: 150px;
-  text-align: center;
-  font-size: 16px;
-}
-
-/* Remember Me & Forgot Password */
-.remember-me {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 14px;
-  width: 100%;
-  max-width: 350px;
-  margin-bottom: 15px;
-}
-
-.remember-me input {
-  margin-right: 5px;
-}
-
-.forgot-password {
-  color: #007bff;
-  text-decoration: none;
-}
-
-.forgot-password:hover {
-  text-decoration: underline;
-}
-
-/* ✅ Centered Login Button */
-.login-btn {
-  width: 100%;
-  max-width: 350px;
-  padding: 12px;
-  font-size: 16px;
-  font-weight: bold;
-  background-color: #1a1a1a;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: 0.3s ease-in-out;
-  text-align: center;
-  display: block;
-  margin: auto;
-}
-
-.login-btn:hover {
-  background-color: #333;
-}
-
-/* OR Text */
-.or-text {
-  font-size: 14px;
-  color: #666;
-  text-align: center;
-  margin: 15px 0;
-}
-
-/* ✅ Fixed Social Logins */
-.social-login {
-  width: 100%;
-  max-width: 350px;
-  padding: 12px;
-  font-size: 16px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 10px;
-  text-align: center;
-}
-
-/* Icons inside Social Buttons */
-.social-login i {
-  margin-right: 10px;
-}
-
-/* Social Button Colors */
-.google {
-  background-color: white;
-  color: black;
-  border: 1px solid #ccc;
-}
-
-.google:hover {
-  background-color: #f0f0f0;
-}
-
-.apple {
-  background-color: black;
-  color: white;
-}
-
-.apple:hover {
-  background-color: #333;
-}
-
-.facebook {
-  background-color: #1877f2;
-  color: white;
-}
-
-.facebook:hover {
-  background-color: #1359b2;
-}
-
-/* ✅ Fixing Signup Text */
-.signup-text {
-  font-size: 14px;
-  text-align: center;
-}
-
-.signup-text a {
-  color: #007bff;
-  text-decoration: none;
-}
-
-.signup-text a:hover {
-  text-decoration: underline;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-  #login-container {
+    flex: 1;
+    background: #fff;
+    display: flex;
     flex-direction: column;
-    width: 90%;
-  }
-
-  .login-image-container {
-    display: none;
-  }
-
-  .login-form-container {
-    width: 100%;
-  }
-}
-.captcha-text{
-  color:black;
-}
-.opening-text{
-  color:black;
-}
-/* Ensure body background fills the screen */
-body {
-  margin: 0;
-  font-family: 'Arial', sans-serif;
-  background: url('background.jpg') no-repeat center center fixed;
-  background-size: cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 40px
 }
 
-/* Main Container */
-#login-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 90%;
-  max-width: 400px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  padding: 30px 40px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-  text-align: center;
-}
-
-/* Heading Text */
-h2 {
-  font-size: 22px;
-  font-weight: bold;
-  color: white;
-  margin-bottom: 10px;
-}
-
-/* Subtext */
 .login-subtext {
-  font-size: 14px;
-  color: #e3e7ee;
-  margin-bottom: 20px;
+    text-align: center
 }
 
-/* Improved Input Box Contrast */
 .input-box {
-  position: relative;
-  width: 100%;
-  margin-bottom: 15px;
+    max-width: 350px
 }
 
-.input-box input {
-  width: 100%;
-  padding: 12px;
-  border: none;
-  border-radius: 6px;
-  background: #222; /* Darker Background for Contrast */
-  color: white;
-  font-size: 16px;
-  outline: none;
-  transition: 0.3s;
+.input-box input,h2 {
+    font-weight: 700
 }
 
-.input-box input::placeholder {
-  color: rgba(255, 255, 255, 0.6);
-}
-
-/* Ensure password visibility toggle icon is visible */
-.input-box i {
-  position: absolute;
-  right: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: white;
-  cursor: pointer;
-}
-
-/* ✅ Improved CAPTCHA Box */
 .captcha-container {
-  text-align: center;
-  margin-bottom: 15px;
-  background: #444; /* Dark Gray for Better Visibility */
-  padding: 10px;
-  border-radius: 8px;
-  font-size: 18px;
-  font-weight: bold;
-  color: white;
+    background: #f3f3f3
 }
 
-/* ✅ Improved CAPTCHA Input Field */
-.captcha-container input {
-  width: 100%;
-  max-width: 150px;
-  text-align: center;
-  font-size: 16px;
-  background: #222; /* Match with input field */
-  border: 1px solid #555;
-  color: white;
-  border-radius: 6px;
+.login-btn,.remember-me {
+    max-width: 350px
 }
 
-/* Remember Me & Forgot Password */
-.remember-me {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 14px;
-  width: 100%;
-  margin-bottom: 15px;
-}
-
-.remember-me input {
-  margin-right: 5px;
-}
-
-.forgot-password {
-  color: #00FF88;
-  text-decoration: none;
-}
-
-.forgot-password:hover {
-  text-decoration: underline;
-}
-
-/* ✅ Centered Login Button */
 .login-btn {
-  width: 100%;
-  padding: 12px;
-  font-size: 16px;
-  font-weight: bold;
-  background-color: #00FF88;
-  color: black;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: 0.3s ease-in-out;
-  text-align: center;
-  display: block;
+    margin: auto
 }
 
-.login-btn:hover {
-  background-color: #00CC66;
-  transform: scale(1.05);
-}
-
-/* OR Text */
-.or-text {
-  font-size: 14px;
-  color: #ddd;
-  text-align: center;
-  margin: 15px 0;
-}
-
-/* ✅ Fixed Social Logins */
 .social-login {
-  width: 100%;
-  padding: 12px;
-  font-size: 16px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 10px;
+    max-width: 350px;
+    text-align: center
 }
 
-/* Icons inside Social Buttons */
-.social-login i {
-  margin-right: 10px;
+@media (max-width:768px) {
+    #login-container {
+        flex-direction: column;
+        width: 90%
+    }
+
+    .login-image-container {
+        display: none
+    }
+
+    .login-form-container {
+        width: 100%
+    }
 }
 
-/* Social Button Colors */
-.google {
-  background-color: white;
-  color: black;
-  border: 1px solid #ccc;
+#login-container {
+    background: rgba(255,255,255,.1)
 }
 
-.google:hover {
-  background-color: #f0f0f0;
+h2 {
+    font-size: 22px;
+    margin-bottom: 5px
 }
 
-.apple {
-  background-color: black;
-  color: white;
+@media (max-width:768px) {
+    #login-container {
+        width: 90%;
+        padding: 20px
+    }
 }
 
-.apple:hover {
-  background-color: #333;
+#login-container {
+    height: 30vh;
+    background: rgba(255,255,255,.15)
 }
 
-.facebook {
-  background-color: #1877f2;
-  color: white;
+@media (max-width:768px) {
+    #login-container {
+        width: 90%;
+        height: auto;
+        padding: 20px
+    }
 }
 
-.facebook:hover {
-  background-color: #1359b2;
-}
-
-/* ✅ Fixing Signup Text */
-.signup-text {
-  font-size: 14px;
-  text-align: center;
+.captcha-text,.opening-text,h2 {
+    color: #fff
 }
 
 .signup-text a {
-  color: #00FF88;
-  text-decoration: none;
+    color: #0f8;
+    text-decoration: none
 }
 
-.signup-text a:hover {
-  text-decoration: underline;
+.login-btn {
+    display: block
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-  #login-container {
-    width: 90%;
-    padding: 20px;
-  }
+.sidebar-btn button i {
+    margin-right: 10px
 }
 
-/* Fix CAPTCHA Text Color */
-.captcha-text {
-  color: white;
+@media (max-width:1024px) {
+    #login-container {
+        width: 60%;
+        max-height: 85vh
+    }
 }
 
-/* Ensure Opening Text is White */
-.opening-text {
-  color: white;
-}
-/* Ensure body background covers full screen */
-body {
-  margin: 0;
-  font-family: 'Arial', sans-serif;
-  background: url('background.jpg') no-repeat center center fixed;
-  background-size: cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+@media (max-width:768px) {
+    #login-container {
+        width: 75%;
+        max-height: 80vh;
+        padding: 30px
+    }
 }
 
-/* Main Container - Adjusted Height & Width */
+@media (max-width:480px) {
+    #login-container {
+        width: 90%;
+        max-height: 80vh;
+        padding: 25px
+    }
+}
+
 #login-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 80%;
-  max-width: 450px; /* Prevents excessive width */
-  height: 30vh; /* Adjusted height */
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 12px;
-  padding: 30px;
-  backdrop-filter: blur(15px);
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
-  text-align: center;
+    background: rgba(255,255,255,.12);
+    backdrop-filter: blur(12px)
 }
 
-/* Heading */
-h2 {
-  font-size: 24px;
-  font-weight: bold;
-  color: white;
-  margin-bottom: 10px;
+@media (max-width:1024px) {
+    #login-container {
+        width: 55%;
+        max-height: 80vh
+    }
 }
 
-/* Subtext */
-.login-subtext {
-  font-size: 14px;
-  color: #e3e7ee;
-  margin-bottom: 20px;
+@media (max-width:768px) {
+    #login-container {
+        width: 75%;
+        max-height: 75vh;
+        padding: 25px
+    }
 }
 
-/* Improved Input Box Sizing */
-.input-box {
-  position: relative;
-  width: 100%;
-  margin-bottom: 15px;
+@media (max-width:480px) {
+    #login-container {
+        width: 90%;
+        max-height: 75vh;
+        padding: 20px
+    }
 }
 
-.input-box input {
-  width: 100%;
-  padding: 14px;
-  border: none;
-  border-radius: 8px;
-  background: #222;
-  color: white;
-  font-size: 16px;
-  outline: none;
-  transition: 0.3s;
-}
-
-/* Ensure password visibility toggle icon is visible */
-.input-box i {
-  position: absolute;
-  right: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: white;
-  cursor: pointer;
-}
-
-/* ✅ Improved CAPTCHA Box */
-.captcha-container {
-  text-align: center;
-  margin-bottom: 15px;
-  background: #444;
-  padding: 10px;
-  border-radius: 8px;
-  font-size: 18px;
-  font-weight: bold;
-  color: white;
-  width: 100%;
-}
-
-/* ✅ Improved CAPTCHA Input Field */
-.captcha-container input {
-  width: 100%;
-  max-width: 150px;
-  text-align: center;
-  font-size: 16px;
-  background: #222;
-  border: 1px solid #555;
-  color: white;
-  border-radius: 6px;
-}
-
-/* Remember Me & Forgot Password */
-.remember-me {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 14px;
-  width: 100%;
-  margin-bottom: 15px;
+#login-container {
+    background: 0 0
 }
 
 .remember-me input {
-  margin-right: 5px;
+    margin-right: 5px
 }
 
-.forgot-password {
-  color: #00FF88;
-  text-decoration: none;
-}
-
-.forgot-password:hover {
-  text-decoration: underline;
-}
-
-/* ✅ Centered Login Button */
-.login-btn {
-  width: 100%;
-  padding: 14px;
-  font-size: 16px;
-  font-weight: bold;
-  background-color: #00FF88;
-  color: black;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.3s ease-in-out;
-  text-align: center;
-  display: block;
-}
-
-.login-btn:hover {
-  background-color: #00CC66;
-  transform: scale(1.05);
-}
-
-/* OR Text */
 .or-text {
-  font-size: 14px;
-  color: #ddd;
-  text-align: center;
-  margin: 15px 0;
+    font-size: 13px;
+    color: #ddd;
+    text-align: center;
+    margin: 12px 0
 }
 
-/* ✅ Fixed Social Logins */
-.social-login {
-  width: 100%;
-  padding: 14px;
-  font-size: 16px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 10px;
+@media (max-width:1024px) {
+    #login-container {
+        width: 55%;
+        max-height: 80vh
+    }
 }
 
-/* Icons inside Social Buttons */
-.social-login i {
-  margin-right: 10px;
+@media (max-width:768px) {
+    #login-container {
+        width: 75%;
+        max-height: 75vh;
+        padding: 25px
+    }
 }
 
-/* Social Button Colors */
-.google {
-  background-color: white;
-  color: black;
-  border: 1px solid #ccc;
+@media (max-width:480px) {
+    #login-container {
+        width: 90%;
+        max-height: 75vh;
+        padding: 20px
+    }
 }
 
-.google:hover {
-  background-color: #f0f0f0;
+#login-container,.navbar {
+    display: flex;
+    align-items: center
 }
 
-.apple {
-  background-color: black;
-  color: white;
+.navbar,.sidebar {
+    position: fixed;
+    left: 0
 }
 
-.apple:hover {
-  background-color: #333;
-}
-
-.facebook {
-  background-color: #1877f2;
-  color: white;
-}
-
-.facebook:hover {
-  background-color: #1359b2;
-}
-
-/* ✅ Fixing Signup Text */
-.signup-text {
-  font-size: 14px;
-  text-align: center;
-}
-
-.signup-text a {
-  color: #00FF88;
-  text-decoration: none;
-}
-
-.signup-text a:hover {
-  text-decoration: underline;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-  #login-container {
-    width: 90%;
-    height: auto;
-    padding: 20px;
-  }
-}
-
-/* Fix CAPTCHA Text Color */
-.captcha-text {
-  color: white;
-}
-
-/* Ensure Opening Text is White */
-.opening-text {
-  color: white;
-}
-/* Ensure full-screen background */
-body {
-  margin: 0;
-  font-family: 'Arial', sans-serif;
-  background: url('background.jpg') no-repeat center center fixed;
-  background-size: cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  overflow: hidden; /* Prevents unwanted scrolling */
-}
-
-/* ✅ Main Container - Fully Responsive */
-#login-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 40%; /* Adjusts dynamically */
-  max-width: 500px;
-  height: auto;
-  max-height: 90vh; /* Prevents cutoff */
-  background: rgba(255, 255, 255, 0.12);
-  border-radius: 15px;
-  padding: 40px;
-  backdrop-filter: blur(15px);
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
-  text-align: center;
-  overflow-y: auto; /* ✅ Ensures scrolling instead of cut-off */
-}
-
-/* Heading */
-h2 {
-  font-size: 24px;
-  font-weight: bold;
-  color: white;
-  margin-bottom: 10px;
-}
-
-/* Subtext */
-.login-subtext {
-  font-size: 14px;
-  color: #e3e7ee;
-  margin-bottom: 20px;
-}
-
-/* ✅ Improved Input Box Sizing */
-.input-box {
-  position: relative;
-  width: 100%;
-  margin-bottom: 15px;
-}
-
-.input-box input {
-  width: 100%;
-  padding: 14px;
-  border: none;
-  border-radius: 8px;
-  background: #222;
-  color: white;
-  font-size: 16px;
-  outline: none;
-  transition: 0.3s;
-}
-
-/* Password Visibility Icon */
-.input-box i {
-  position: absolute;
-  right: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: white;
-  cursor: pointer;
-}
-
-/* ✅ Improved CAPTCHA Box */
-.captcha-container {
-  text-align: center;
-  margin-bottom: 15px;
-  background: #444;
-  padding: 10px;
-  border-radius: 8px;
-  font-size: 18px;
-  font-weight: bold;
-  color: white;
-  width: 100%;
-}
-
-/* ✅ Improved CAPTCHA Input Field */
-.captcha-container input {
-  width: 100%;
-  max-width: 150px;
-  text-align: center;
-  font-size: 16px;
-  background: #222;
-  border: 1px solid #555;
-  color: white;
-  border-radius: 6px;
-}
-
-/* Remember Me & Forgot Password */
-.remember-me {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 14px;
-  width: 100%;
-  margin-bottom: 15px;
-}
-
-.remember-me input {
-  margin-right: 5px;
-}
-
-.forgot-password {
-  color: #00FF88;
-  text-decoration: none;
-}
-
-.forgot-password:hover {
-  text-decoration: underline;
-}
-
-/* ✅ Centered Login Button */
-.login-btn {
-  width: 100%;
-  padding: 14px;
-  font-size: 16px;
-  font-weight: bold;
-  background-color: #00FF88;
-  color: black;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.3s ease-in-out;
-  text-align: center;
-  display: block;
-}
-
-.login-btn:hover {
-  background-color: #00CC66;
-  transform: scale(1.05);
-}
-
-/* OR Text */
-.or-text {
-  font-size: 14px;
-  color: #ddd;
-  text-align: center;
-  margin: 15px 0;
-}
-
-/* ✅ Fixed Social Logins */
-.social-login {
-  width: 100%;
-  padding: 14px;
-  font-size: 16px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 10px;
-}
-
-/* Icons inside Social Buttons */
-.social-login i {
-  margin-right: 10px;
-}
-
-/* Social Button Colors */
-.google {
-  background-color: white;
-  color: black;
-  border: 1px solid #ccc;
-}
-
-.google:hover {
-  background-color: #f0f0f0;
-}
-
-.apple {
-  background-color: black;
-  color: white;
-}
-
-.apple:hover {
-  background-color: #333;
-}
-
-.facebook {
-  background-color: #1877f2;
-  color: white;
-}
-
-.facebook:hover {
-  background-color: #1359b2;
-}
-
-/* ✅ Fixing Signup Text */
-.signup-text {
-  font-size: 14px;
-  text-align: center;
-}
-
-.signup-text a {
-  color: #00FF88;
-  text-decoration: none;
-}
-
-.signup-text a:hover {
-  text-decoration: underline;
-}
-
-/* ✅ Fully Responsive Adjustments */
-@media (max-width: 1024px) {
-  #login-container {
-    width: 60%;
-    max-height: 85vh;
-  }
-}
-
-@media (max-width: 768px) {
-  #login-container {
-    width: 75%;
-    max-height: 80vh;
-    padding: 30px;
-  }
-}
-
-@media (max-width: 480px) {
-  #login-container {
-    width: 90%;
-    max-height: 80vh;
-    padding: 25px;
-  }
-}
-/* Ensure full-screen background */
-body {
-  margin: 0;
-  font-family: 'Arial', sans-serif;
-  background: url('background.jpg') no-repeat center center fixed;
-  background-size: cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  overflow: hidden; /* Prevents unwanted scrolling */
-}
-
-/* ✅ Main Container - Compact & Well-Spaced */
-#login-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 40%;
-  max-width: 450px;
-  height: auto;
-  max-height: 85vh; /* Keeps it inside screen */
-  background: rgba(255, 255, 255, 0.12);
-  border-radius: 15px;
-  padding: 30px; /* Reduced padding */
-  backdrop-filter: blur(12px);
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
-  text-align: center;
-  overflow-y: auto;
-}
-
-/* Heading */
-h2 {
-  font-size: 22px; /* Slightly reduced */
-  font-weight: bold;
-  color: white;
-  margin-bottom: 5px; /* Reduced spacing */
-}
-
-/* Subtext */
-.login-subtext {
-  font-size: 13px; /* Smaller text */
-  color: #e3e7ee;
-  margin-bottom: 15px; /* Less space */
-}
-
-/* ✅ Compact Input Boxes */
-.input-box {
-  position: relative;
-  width: 100%;
-  margin-bottom: 10px; /* Less gap */
-}
-
-.input-box input {
-  width: 100%;
-  padding: 12px; /* Reduced height */
-  border: none;
-  border-radius: 6px;
-  background: #222;
-  color: white;
-  font-size: 15px; /* Slightly smaller text */
-  outline: none;
-  transition: 0.3s;
-}
-
-/* Password Visibility Icon */
-.input-box i {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: white;
-  cursor: pointer;
-}
-
-/* ✅ Compact CAPTCHA Box */
-.captcha-container {
-  text-align: center;
-  margin-bottom: 10px; /* Less gap */
-  background: #444;
-  padding: 8px;
-  border-radius: 6px;
-  font-size: 16px;
-  font-weight: bold;
-  color: white;
-  width: 100%;
-}
-
-/* ✅ Compact CAPTCHA Input */
-.captcha-container input {
-  width: 100%;
-  max-width: 130px;
-  text-align: center;
-  font-size: 14px; /* Reduced font */
-  background: #222;
-  border: 1px solid #555;
-  color: white;
-  border-radius: 6px;
-  padding: 8px;
-}
-
-/* Remember Me & Forgot Password */
-.remember-me {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 13px; /* Smaller text */
-  width: 100%;
-  margin-bottom: 12px; /* Less spacing */
-}
-
-.remember-me input {
-  margin-right: 5px;
-}
-
-.forgot-password {
-  color: #00FF88;
-  text-decoration: none;
-  font-size: 13px;
-}
-
-.forgot-password:hover {
-  text-decoration: underline;
-}
-
-/* ✅ Compact Login Button */
-.login-btn {
-  width: 100%;
-  padding: 12px; /* Smaller height */
-  font-size: 15px; /* Reduced font */
-  font-weight: bold;
-  background-color: #00FF88;
-  color: black;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: 0.3s ease-in-out;
-  text-align: center;
-}
-
-.login-btn:hover {
-  background-color: #00CC66;
-  transform: scale(1.05);
-}
-
-/* OR Text */
-.or-text {
-  font-size: 13px; /* Smaller text */
-  color: #ddd;
-  text-align: center;
-  margin: 12px 0; /* Less space */
-}
-
-/* ✅ Compact Social Logins */
-.social-login {
-  width: 100%;
-  padding: 10px; /* Smaller button */
-  font-size: 14px; /* Slightly smaller */
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 8px; /* Less spacing */
-}
-
-/* Icons inside Social Buttons */
-.social-login i {
-  margin-right: 8px;
-}
-
-/* Social Button Colors */
-.google {
-  background-color: white;
-  color: black;
-  border: 1px solid #ccc;
-}
-
-.google:hover {
-  background-color: #f0f0f0;
-}
-
-.apple {
-  background-color: black;
-  color: white;
-}
-
-.apple:hover {
-  background-color: #333;
-}
-
-.facebook {
-  background-color: #1877f2;
-  color: white;
-}
-
-.facebook:hover {
-  background-color: #1359b2;
-}
-
-/* ✅ Fixing Signup Text */
-.signup-text {
-  font-size: 13px; /* Smaller text */
-  text-align: center;
-}
-
-.signup-text a {
-  color: #00FF88;
-  text-decoration: none;
-}
-
-.signup-text a:hover {
-  text-decoration: underline;
-}
-
-/* ✅ Fully Responsive Adjustments */
-@media (max-width: 1024px) {
-  #login-container {
-    width: 55%;
-    max-height: 80vh;
-  }
-}
-
-@media (max-width: 768px) {
-  #login-container {
-    width: 75%;
-    max-height: 75vh;
-    padding: 25px;
-  }
-}
-
-@media (max-width: 480px) {
-  #login-container {
-    width: 90%;
-    max-height: 75vh;
-    padding: 20px;
-  }
-}
-/* Ensure full-screen background */
-body {
-  margin: 0;
-  font-family: 'Arial', sans-serif;
-  background: url('background.jpg') no-repeat center center fixed;
-  background-size: cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  overflow: hidden; /* Prevents unwanted scrolling */
-}
-
-/* ✅ Main Container - Removed Background */
-#login-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 40%;
-  max-width: 450px;
-  height: auto;
-  max-height: 85vh;
-  border-radius: 15px;
-  padding: 30px;
-  text-align: center;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3); /* Keeps elevation effect */
-  overflow-y: auto;
-  background: none; /* ✅ Removed background */
-  backdrop-filter: none; /* ✅ Ensures no blur effect */
-}
-
-/* Heading */
-h2 {
-  font-size: 22px;
-  font-weight: bold;
-  color: white;
-  margin-bottom: 5px;
-}
-
-/* Subtext */
-.login-subtext {
-  font-size: 13px;
-  color: #e3e7ee;
-  margin-bottom: 15px;
-}
-
-/* ✅ Compact Input Boxes */
-.input-box {
-  position: relative;
-  width: 100%;
-  margin-bottom: 10px;
-}
-
-.input-box input {
-  width: 100%;
-  padding: 12px;
-  border: none;
-  border-radius: 6px;
-  background: #222;
-  color: white;
-  font-size: 15px;
-  outline: none;
-  transition: 0.3s;
-}
-
-/* Password Visibility Icon */
-.input-box i {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: white;
-  cursor: pointer;
-}
-
-/* ✅ Compact CAPTCHA Box */
-.captcha-container {
-  text-align: center;
-  margin-bottom: 10px;
-  background: #444;
-  padding: 8px;
-  border-radius: 6px;
-  font-size: 16px;
-  font-weight: bold;
-  color: white;
-  width: 100%;
-}
-
-/* ✅ Compact CAPTCHA Input */
-.captcha-container input {
-  width: 100%;
-  max-width: 130px;
-  text-align: center;
-  font-size: 14px;
-  background: #222;
-  border: 1px solid #555;
-  color: white;
-  border-radius: 6px;
-  padding: 8px;
-}
-
-/* Remember Me & Forgot Password */
-.remember-me {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 13px;
-  width: 100%;
-  margin-bottom: 12px;
-}
-
-.remember-me input {
-  margin-right: 5px;
-}
-
-.forgot-password {
-  color: #00FF88;
-  text-decoration: none;
-  font-size: 13px;
-}
-
-.forgot-password:hover {
-  text-decoration: underline;
-}
-
-/* ✅ Compact Login Button */
-.login-btn {
-  width: 100%;
-  padding: 12px;
-  font-size: 15px;
-  font-weight: bold;
-  background-color: #00FF88;
-  color: black;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: 0.3s ease-in-out;
-  text-align: center;
-}
-
-.login-btn:hover {
-  background-color: #00CC66;
-  transform: scale(1.05);
-}
-
-/* OR Text */
-.or-text {
-  font-size: 13px;
-  color: #ddd;
-  text-align: center;
-  margin: 12px 0;
-}
-
-/* ✅ Compact Social Logins */
-.social-login {
-  width: 100%;
-  padding: 10px;
-  font-size: 14px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 8px;
-}
-
-/* Icons inside Social Buttons */
-.social-login i {
-  margin-right: 8px;
-}
-
-/* Social Button Colors */
-.google {
-  background-color: white;
-  color: black;
-  border: 1px solid #ccc;
-}
-
-.google:hover {
-  background-color: #f0f0f0;
-}
-
-.apple {
-  background-color: black;
-  color: white;
-}
-
-.apple:hover {
-  background-color: #333;
-}
-
-.facebook {
-  background-color: #1877f2;
-  color: white;
-}
-
-.facebook:hover {
-  background-color: #1359b2;
-}
-
-/* ✅ Fixing Signup Text */
-.signup-text {
-  font-size: 13px;
-  text-align: center;
-}
-
-.signup-text a {
-  color: #00FF88;
-  text-decoration: none;
-}
-
-.signup-text a:hover {
-  text-decoration: underline;
-}
-
-/* ✅ Fully Responsive Adjustments */
-@media (max-width: 1024px) {
-  #login-container {
-    width: 55%;
-    max-height: 80vh;
-  }
-}
-
-@media (max-width: 768px) {
-  #login-container {
-    width: 75%;
-    max-height: 75vh;
-    padding: 25px;
-  }
-}
-
-@media (max-width: 480px) {
-  #login-container {
-    width: 90%;
-    max-height: 75vh;
-    padding: 20px;
-  }
-}
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-
-/* Keyframe Animations */
-@keyframes slideInLeft {
-  from { opacity: 0; transform: translateX(100px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* Universal Styles */
-body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background: url('background.jpg') no-repeat center center fixed;
-  background-size: cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  overflow: hidden;
-  transition: background 0.3s, color 0.3s;
-}
-
-body.light-mode {
-  background: url('background1.jpg') no-repeat center center fixed !important;
-  background-size: cover;
-  color: black !important;
-}
-
-/* Navbar */
 .navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100vw;
-  height: 70px;
-  background-color: black;
-  color: white;
-  padding: 10px 20px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-  transition: background 0.3s;
-  font-family: "Oswald";
-  white-space: nowrap;
+    justify-content: space-between;
+    width: 100vw;
+    height: 70px;
+    background-color: #000;
+    color: #fff;
+    padding: 10px 20px;
+    top: 0;
+    z-index: 1000;
+    transition: background .3s;
+    font-family: "Oswald";
+    white-space: nowrap
 }
 
-body.light-mode .navbar { background-color: #f0f0f0 !important; color: black !important; }
+body.light-mode .navbar {
+    background-color: #f0f0f0!important;
+    color: #000!important
+}
 
-/* Sidebar */
 .sidebar {
-  position: fixed;
-  top: 80px;
-  left: 0;
-  width: 250px;
-  background-color: #1a1a1a;
-  height: calc(100vh - 80px);
-  padding: 10px;
-  border-right: 1px solid #333;
-  overflow-y: auto;
+    top: 80px;
+    width: 250px;
+    background-color: #1a1a1a;
+    height: calc(100vh - 80px);
+    padding: 10px;
+    border-right: 1px solid #333;
+    overflow-y: auto
 }
 
-body.light-mode .sidebar { background-color: #f9f9f9 !important; border-right: 1px solid #ccc; }
+body.light-mode .sidebar {
+    background-color: #f9f9f9!important;
+    border-right: 1px solid #ccc
+}
+
+.input-box input,.sidebar-btn button {
+    width: 100%;
+    padding: 12px;
+    border: 0;
+    border-radius: 6px;
+    color: #fff
+}
 
 .sidebar-btn button {
-  display: flex;
-  align-items: center;
-  background: rgba(44, 44, 44, 0.9);
-  color: white;
-  font-size: 1rem;
-  padding: 12px;
-  width: 100%;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.2s, transform 0.2s;
-  font-family: "Lexend Giga", sans-serif;
+    display: flex;
+    align-items: center;
+    background: rgba(44,44,44,.9);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background .2s,transform .2s;
+    font-family: "Lexend Giga",sans-serif
 }
 
-.sidebar-btn button i { margin-right: 10px; }
-
-.sidebar-btn button:hover { background: rgba(76, 175, 80, 0.8); transform: translateX(5px); }
-
-body.light-mode .sidebar-btn button { background: rgba(220, 220, 220, 0.9); color: black; }
-body.light-mode .sidebar-btn button:hover { background: rgba(72, 138, 199, 0.8); }
-
-/* Content */
 .content {
-  margin-left: 270px;
-  padding: 20px;
-  margin-top: 80px;
-  transition: background 0.3s, color 0.3s;
-  font-family: "Arsenal SC";
+    margin-left: 270px;
+    padding: 20px;
+    margin-top: 80px;
+    transition: background .3s,color .3s;
+    font-family: "Arsenal SC"
 }
 
-body.light-mode .content { background-color: #ffffff !important; color: black !important; }
+body.light-mode .content {
+    background-color: #fff!important;
+    color: #000!important
+}
 
-/* Login Container */
 #login-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 40%;
-  max-width: 450px;
-  height: auto;
-  max-height: 85vh;
-  border-radius: 15px;
-  padding: 30px;
-  text-align: center;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
-  overflow-y: auto;
-  background: black;
-  backdrop-filter: none;
+    flex-direction: column;
+    justify-content: center;
+    width: 40%;
+    max-width: 450px;
+    height: auto;
+    max-height: 85vh;
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,.3);
+    overflow-y: auto;
+    background: #000;
+    backdrop-filter: none
 }
 
-/* Heading & Subtext */
-h2 { font-size: 22px; font-weight: bold; color: white; margin-bottom: 5px; }
-.login-subtext { font-size: 13px; color: #e3e7ee; margin-bottom: 15px; }
+.login-subtext {
+    font-size: 13px;
+    color: #e3e7ee;
+    margin-bottom: 15px
+}
 
-/* Input Fields */
 .input-box {
-  position: relative;
-  width: 100%;
-  margin-bottom: 10px;
+    position: relative;
+    width: 100%;
+    margin-bottom: 10px
 }
 
 .input-box input {
-  width: 100%;
-  padding: 12px;
-  border: none;
-  border-radius: 6px;
-  background: #222;
-  color: white;
-  font-size: 15px;
-  outline: none;
-  transition: 0.3s;
+    background: #222;
+    font-size: 15px;
+    outline: 0;
+    transition: .3s
 }
 
 .input-box i {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: white;
-  cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    cursor: pointer
 }
 
-/* CAPTCHA */
+.captcha-container,.captcha-container input {
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    border-radius: 6px;
+    padding: 8px
+}
+
 .captcha-container {
-  text-align: center;
-  margin-bottom: 10px;
-  background: #444;
-  padding: 8px;
-  border-radius: 6px;
-  font-size: 16px;
-  font-weight: bold;
-  color: white;
-  width: 100%;
+    margin-bottom: 10px;
+    background: #444;
+    font-size: 16px;
+    font-weight: 700
 }
 
 .captcha-container input {
-  width: 100%;
-  max-width: 130px;
-  text-align: center;
-  font-size: 14px;
-  background: #222;
-  border: 1px solid #555;
-  color: white;
-  border-radius: 6px;
-  padding: 8px;
+    max-width: 130px;
+    font-size: 14px;
+    background: #222;
+    border: 1px solid #555
 }
 
-/* Remember Me & Forgot Password */
 .remember-me {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 13px;
-  width: 100%;
-  margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    width: 100%;
+    margin-bottom: 12px
 }
 
 .forgot-password {
-  color: #00FF88;
-  text-decoration: none;
-  font-size: 13px;
+    color: #0f8;
+    text-decoration: none;
+    font-size: 13px
 }
 
-.forgot-password:hover { text-decoration: underline; }
+.forgot-password:hover,.signup-text a:hover {
+    text-decoration: underline
+}
 
-/* Login Button */
+.login-btn,.social-login {
+    width: 100%;
+    border: 0;
+    border-radius: 6px;
+    cursor: pointer
+}
+
 .login-btn {
-  width: 100%;
-  padding: 12px;
-  font-size: 15px;
-  font-weight: bold;
-  background-color: #00FF88;
-  color: black;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: 0.3s;
-  text-align: center;
+    padding: 12px;
+    font-size: 15px;
+    font-weight: 700;
+    background-color: #0f8;
+    color: #000;
+    transition: .3s;
+    text-align: center
 }
 
-.login-btn:hover { background-color: #00CC66; transform: scale(1.05); }
+.login-btn:hover {
+    background-color: #0c6;
+    transform: scale(1.05)
+}
 
-/* Social Logins */
 .social-login {
-  width: 100%;
-  padding: 10px;
-  font-size: 14px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 8px;
+    padding: 10px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px
 }
 
-.social-login i { margin-right: 8px; }
+.social-login i {
+    margin-right: 8px
+}
 
-/* Social Button Colors */
-.google { background-color: white; color: black; border: 1px solid #ccc; }
-.google:hover { background-color: #f0f0f0; }
+.google {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #ccc
+}
 
-.apple { background-color: black; color: white; }
-.apple:hover { background-color: #333; }
+.google:hover {
+    background-color: #f0f0f0
+}
 
-.facebook { background-color: #1877f2; color: white; }
-.facebook:hover { background-color: #1359b2; }
+.apple,.facebook {
+    background-color: #000;
+    color: #fff
+}
 
-/* Signup Text */
+.apple:hover {
+    background-color: #333
+}
+
+.facebook {
+    background-color: #1877f2
+}
+
+.facebook:hover {
+    background-color: #1359b2
+}
+
 .signup-text {
-  font-size: 13px;
-  text-align: center;
+    font-size: 13px;
+    text-align: center
 }
 
-.signup-text a {
-  color: #00FF88;
-  text-decoration: none;
+@media (max-width:1024px) {
+    #login-container {
+        width: 55%;
+        max-height: 80vh
+    }
 }
 
-.signup-text a:hover { text-decoration: underline; }
+@media (max-width:768px) {
+    #login-container {
+        width: 75%;
+        max-height: 75vh;
+        padding: 25px
+    }
+}
 
-/* Responsive Adjustments */
-@media (max-width: 1024px) { #login-container { width: 55%; max-height: 80vh; } }
-@media (max-width: 768px) { #login-container { width: 75%; max-height: 75vh; padding: 25px; } }
-@media (max-width: 480px) { #login-container { width: 90%; max-height: 75vh; padding: 20px; } }
-
+@media (max-width:480px) {
+    #login-container {
+        width: 90%;
+        max-height: 75vh;
+        padding: 20px
+    }
+}
 
 
 
