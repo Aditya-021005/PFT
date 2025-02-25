@@ -188,7 +188,9 @@ body.light-mode tbody tr:nth-child(even) {
 }
 
 #expenseChart {
-    max-height: 300px
+    max-height: 300px;
+    max-width:300px;
+    margin:auto;
 }
 
 #theme-btn {
