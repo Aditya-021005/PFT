@@ -1253,6 +1253,136 @@ body.light-mode .content {
         padding: 20px
     }
 }
+/* Adjusting Section Containers */
+#main-section,
+#balance-section,
+#visual-section,
+#expenses-section {
+    max-width: 700px; /* Increased width */
+    width: 90%; /* Ensures responsiveness */
+    background: rgba(255, 255, 255, 0.1); /* Light glass effect */
+    backdrop-filter: blur(10px); /* Glassmorphism */
+    border-radius: 12px;
+    padding: 25px; /* Slightly more padding */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: 0.3s ease-in-out;
+    margin: 10px auto; /* Positioned towards the top */
+}
+
+/* Ensuring all sections are at the top */
+#main-section,
+#balance-section,
+#visual-section,
+#expenses-section {
+    align-self: flex-start; /* Moves to the top */
+}
+
+/* Headings */
+#main-section h2,
+#balance-section h2,
+#visual-section h2,
+#expenses-section h2 {
+    font-size: 26px; /* Slightly larger */
+    font-weight: bold;
+    text-align: center;
+    color: white;
+}
+
+/* Inputs & Select Fields */
+#main-section input,
+#main-section select,
+#balance-section input {
+    width: 100%;
+    padding: 14px;
+    border-radius: 6px;
+    font-size: 18px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    transition: 0.3s;
+    border: 2px solid #ccc;
+}
+
+/* Hover and Focus Effects */
+#main-section input:hover,
+#main-section input:focus,
+#balance-section input:hover,
+#balance-section input:focus {
+    border-color: #4CAF50; /* Green border highlight */
+    outline: none;
+}
+
+/* Adjusting Buttons */
+#add-btn,
+#calculate-balance {
+    width: 100%;
+    padding: 14px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Ensuring Proper Alignment */
+#main-section,
+#balance-section,
+#visual-section,
+#expenses-section {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Making Tables More Readable */
+#expenses-section table {
+    width: 100%;
+    margin-top: 15px; /* Adds spacing */
+    font-size: 18px; /* Bigger text */
+}
+
+#expenses-section th {
+    padding: 14px;
+    text-align: left;
+}
+
+/* Dark Mode Adjustments */
+.dark-mode #main-section,
+.dark-mode #balance-section,
+.dark-mode #visual-section,
+.dark-mode #expenses-section {
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+}
+
+/* Light Mode Adjustments */
+.light-mode #main-section,
+.light-mode #balance-section,
+.light-mode #visual-section,
+.light-mode #expenses-section {
+    background: rgba(255, 255, 255, 0.9);
+    color: black;
+}
+
+/* Responsive Fix */
+@media (max-width: 768px) {
+    #main-section,
+    #balance-section,
+    #visual-section,
+    #expenses-section {
+        max-width: 90%;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    #main-section,
+    #balance-section,
+    #visual-section,
+    #expenses-section {
+        max-width: 95%;
+        padding: 18px;
+    }
+}
+
 
 
 
